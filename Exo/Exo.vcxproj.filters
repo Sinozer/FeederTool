@@ -67,6 +67,12 @@
     <Filter Include="Fichiers d%27en-tête\App\Graphic\View\Holder\Box\Action">
       <UniqueIdentifier>{58b57290-fdde-4f02-9346-efeb41ea82f3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\Temp">
+      <UniqueIdentifier>{44a710ff-228c-4e24-b632-d52cf18e5532}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Temp">
+      <UniqueIdentifier>{1dc30fb7-3321-4b1d-b204-fc80ac228547}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Utils.cpp">
@@ -113,6 +119,9 @@
     </ClCompile>
     <ClCompile Include="DataManager.cpp">
       <Filter>Fichiers sources\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Project1\Biberon.cpp">
+      <Filter>Fichiers sources\Temp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +172,9 @@
     </ClInclude>
     <ClInclude Include="DataManager.h">
       <Filter>Fichiers d%27en-tête\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Project1\Biberon.h">
+      <Filter>Fichiers d%27en-tête\Temp</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

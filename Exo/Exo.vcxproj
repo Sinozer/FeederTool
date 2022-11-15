@@ -71,9 +71,9 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\qripot\Downloads\SDL2-2.24.2\include;D:\Vclib\SDL2-2.24.2\include;C:\Users\qripot\Downloads\single_include\nlohmann;$(IncludePath)</IncludePath>
+    <IncludePath>D:\Vclib\SDL2-2.24.2\include;C:\Users\qripot\Downloads\single_include\nlohmann;C:\Users\qripot\Downloads\SDL2-2.24.2\include;C:\Users\quent\Desktop\Lib VC\SDL2-2.24.2\include;C:\Users\quent\Desktop\Lib VC\nlohmann;$(IncludePath)</IncludePath>
     <ReferencePath>$(ReferencePath)</ReferencePath>
-    <LibraryPath>C:\Users\qripot\Downloads\SDL2-2.24.2\lib\x64;D:\Vclib\SDL2-2.24.2\lib\x64;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Users\qripot\Downloads\SDL2-2.24.2\lib\x64;D:\Vclib\SDL2-2.24.2\lib\x64;C:\Users\quent\Desktop\Lib VC\SDL2-2.24.2\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -133,6 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Project1\Biberon.cpp" />
     <ClCompile Include="ApplicationManager.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="DataManager.cpp" />
@@ -150,6 +151,7 @@
     <ClCompile Include="View.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Project1\Biberon.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="Button.h" />
