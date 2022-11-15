@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <iomanip>
-#include <nlohmann/json.hpp>
+#include <json.hpp>
 
 // for convenience
 using json = nlohmann::json;
