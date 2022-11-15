@@ -8,49 +8,48 @@ int main( int argc, char* args[] )
 {
 	/*ApplicationManager::application.createFeeder("test", time(0) + 600, 550);
 	ApplicationManager::application.getFeeders().getElement("test").debug();*/
-	
 
-	ApplicationManager::application.getWindow()->createView("mainView", true, 2, 2, ApplicationManager::applicationW / 2 - 4, ApplicationManager::applicationH / 2 - 4, 255, 255, 255, 255);
-	/*cout << ApplicationManager::application.getWindow()->getViews().getElement("test").getParent().getX() << endl;
-	cout << ApplicationManager::application.getWindow()->getViews().getElement("test").getParent().getY() << endl;
-	cout << ApplicationManager::application.getWindow()->getViews().getElement("test").getParent().getW() << endl;
-	cout << ApplicationManager::application.getWindow()->getViews().getElement("test").getParent().getH() << endl;*/
-	View& mainView = ApplicationManager::application.getWindow()->getViews().getElement("mainView");
-	mainView.createView(
+	ApplicationManager::application.getWindow()->createHolder("mainHolder", true, 2, 2, ApplicationManager::applicationW / 2 - 4, ApplicationManager::applicationH / 2 - 4, 255, 255, 255, 255);
+	/*cout << ApplicationManager::application.getWindow()->getHolders().getElement("test").getParent().getX() << endl;
+	cout << ApplicationManager::application.getWindow()->getHolders().getElement("test").getParent().getY() << endl;
+	cout << ApplicationManager::application.getWindow()->getHolders().getElement("test").getParent().getW() << endl;
+	cout << ApplicationManager::application.getWindow()->getHolders().getElement("test").getParent().getH() << endl;*/
+	Holder& mainHolder = ApplicationManager::application.getWindow()->getHolders().getElement("mainHolder");
+	mainHolder.createHolder(
 		"listFeeder", true,
-		mainView.getX() + 5,
-		mainView.getY() + 5,
-		mainView.getW() / 3 - 10,
-		mainView.getH() - 10,
+		mainHolder.getX() + 5,
+		mainHolder.getY() + 5,
+		mainHolder.getW() / 3 - 10,
+		mainHolder.getH() - 10,
 		47, 50, 52, 127);
-	mainView.getViews().getElement("listFeeder").createButton(
-		"test", "Feeder", []() {cout << "TEST" << endl; },
+	mainHolder.getHolders().getElement("listFeeder").createButton(
+		"test", "Feeder", []() {cout << time(0) << endl; },
 		true, false,
-		mainView.getViews().getElement("listFeeder").getX() + 2,
-		mainView.getViews().getElement("listFeeder").getY() + 2,
-		mainView.getViews().getElement("listFeeder").getW() - 4,
-		mainView.getViews().getElement("listFeeder").getH() / 10
+		mainHolder.getHolders().getElement("listFeeder").getX() + 2,
+		mainHolder.getHolders().getElement("listFeeder").getY() + 2,
+		mainHolder.getHolders().getElement("listFeeder").getW() - 4,
+		mainHolder.getHolders().getElement("listFeeder").getH() / 10
 	);
-	mainView.createView(
+	mainHolder.createHolder(
 		"changeFeeder", true,
-		mainView.getViews().getElement("listFeeder").getX() + mainView.getViews().getElement("listFeeder").getW() + 5,
-		mainView.getY() + 5,
-		(mainView.getW() * 2) / 3 - 5,
-		mainView.getH() - 10,
+		mainHolder.getHolders().getElement("listFeeder").getX() + mainHolder.getHolders().getElement("listFeeder").getW() + 5,
+		mainHolder.getY() + 5,
+		(mainHolder.getW() * 2) / 3 - 5,
+		mainHolder.getH() - 10,
 		47, 50, 52, 127);
-	mainView.getViews().getElement("changeFeeder").createTextBox(
+	mainHolder.getHolders().getElement("changeFeeder").createTextBox(
 		"title", "CHANGE PAGE", true, true,
-		mainView.getViews().getElement("changeFeeder").getX() + 2,
-		mainView.getViews().getElement("changeFeeder").getY() + 2,
-		mainView.getViews().getElement("changeFeeder").getW() - 4,
-		mainView.getViews().getElement("changeFeeder").getH() / 10
+		mainHolder.getHolders().getElement("changeFeeder").getX() + 2,
+		mainHolder.getHolders().getElement("changeFeeder").getY() + 2,
+		mainHolder.getHolders().getElement("changeFeeder").getW() - 4,
+		mainHolder.getHolders().getElement("changeFeeder").getH() / 10
 	);
-	/*mainView.getViews().getElement("changeFeeder").createView(
+	/*mainHolder.getHolders().getElement("changeFeeder").createHolder(
 		"main", true,
-		mainView.getViews().getElement("changeFeeder").getX(),
-		mainView.getViews().getElement("changeFeeder").getTextBoxs().getElement("title").getY() + 5,
-		(mainView.getViews().getElement("changeFeeder").getW() * 2) / 3 - 5,
-		mainView.getViews().getElement("changeFeeder").getH() - 10,
+		mainHolder.getHolders().getElement("changeFeeder").getX(),
+		mainHolder.getHolders().getElement("changeFeeder").getTextBoxs().getElement("title").getY() + 5,
+		(mainHolder.getHolders().getElement("changeFeeder").getW() * 2) / 3 - 5,
+		mainHolder.getHolders().getElement("changeFeeder").getH() - 10,
 		47, 50, 52, 127);*/
 
 	while (ApplicationManager::application.isRunning())

@@ -6,9 +6,9 @@ using namespace std;
 #include "ApplicationManager.h"
 #include "TextManager.h"
 
-#include "View.h"
+#include "Holder.h"
 
-class TextBox : public View
+class TextBox : public Holder
 {
 protected:
 	bool hover = false;
@@ -27,7 +27,7 @@ public:
 		const char* vAlign = "mid", const char* hAlign = "mid",
 		int colorR = 255, int colorG = 255,
 		int colorB = 255, int colorA = 255)
-		: View(isActive, x, y, w, h, colorR,
+		: Holder(isActive, x, y, w, h, colorR,
 			colorG, colorB, colorA) {
 		this->text = text;
 		this->vAlign = vAlign;
@@ -50,8 +50,8 @@ public:
 	void update() override;
 	void render() override;
 
-	Container<View>& getViews() = delete;
-	void createView(const char* name,
+	Container<Holder>& getHolders() = delete;
+	void createHolder(const char* name,
 		int x = 0, int y = 0,
 		int w = 0, int h = 0,
 		int colorR = 255, int colorG = 255,

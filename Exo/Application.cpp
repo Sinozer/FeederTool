@@ -53,37 +53,37 @@ void Application::handleEvents()
 		default:
 			break;
 		}
-		/*###### Views ######*/
-		for (auto i = this->window->getViews().list.begin(); i != this->window->getViews().list.end(); i++)
+		/*###### Holders ######*/
+		for (auto i = this->window->getHolders().list.begin(); i != this->window->getHolders().list.end(); i++)
 		{
 			i->second.handleEvents();
 		}
-		/*###### Views ######*/
+		/*###### Holders ######*/
 	}
 }
 
 void Application::update()
 {
-	/*###### Views ######*/
-	for (auto i = this->window->getViews().list.begin(); i != this->window->getViews().list.end(); i++)
+	/*###### Holders ######*/
+	for (auto i = this->window->getHolders().list.begin(); i != this->window->getHolders().list.end(); i++)
 	{
 		i->second.update();
 	}
-	/*###### Views ######*/
+	/*###### Holders ######*/
 }
 
 void Application::render()
 {
 	this->window->clearRenderer();
 
-	/*###### Views ######*/
-	for (auto i = this->window->getViews().list.begin(); i != this->window->getViews().list.end(); i++)
+	/*###### Holders ######*/
+	for (auto i = this->window->getHolders().list.begin(); i != this->window->getHolders().list.end(); i++)
 	{
 		if (i->second.isActive()) i->second.render();
 	}
 
 	//SDL_RenderCopy(this->window->renderer, testTexture, NULL, NULL);
-	/*###### Views ######*/
+	/*###### Holders ######*/
 
 	SDL_RenderPresent(this->window->renderer);
 }

@@ -43,23 +43,29 @@
     <Filter Include="Fichiers d%27en-tête\Managers">
       <UniqueIdentifier>{9d9f94d8-8195-46c6-b15c-52dadec28949}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\App\Graphic\View">
-      <UniqueIdentifier>{f956ade0-d31f-4c59-96ae-08f014db26c5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Fichiers sources\App\Graphic\View">
+      <UniqueIdentifier>{65aeec46-4a1c-49a2-9572-3722c1e2d4cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\App\Graphic\View\Holder">
       <UniqueIdentifier>{53d31414-c9c1-41e9-8dc4-923c9931ed5d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\App\Graphic\View\Action">
-      <UniqueIdentifier>{6043f5a5-bc95-4bcc-863c-66886b8497f5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\App\Graphic\View\Action">
-      <UniqueIdentifier>{58b57290-fdde-4f02-9346-efeb41ea82f3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\App\Graphic\View\Box">
+    <Filter Include="Fichiers sources\App\Graphic\View\Holder\Box">
       <UniqueIdentifier>{b0bbc0ab-08ad-408b-a17e-8235f364f6b3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\App\Graphic\View\Box">
+    <Filter Include="Fichiers sources\App\Graphic\View\Holder\Box\Action">
+      <UniqueIdentifier>{6043f5a5-bc95-4bcc-863c-66886b8497f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\App\Graphic\View">
+      <UniqueIdentifier>{589bba13-2aa5-4f87-96d1-8cfc02601c4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\App\Graphic\View\Holder">
+      <UniqueIdentifier>{f956ade0-d31f-4c59-96ae-08f014db26c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\App\Graphic\View\Holder\Box">
       <UniqueIdentifier>{4c6d6855-741b-4a03-94ba-512a53558bdc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\App\Graphic\View\Holder\Box\Action">
+      <UniqueIdentifier>{58b57290-fdde-4f02-9346-efeb41ea82f3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -87,20 +93,26 @@
     <ClCompile Include="TextureManager.cpp">
       <Filter>Fichiers sources\Managers</Filter>
     </ClCompile>
-    <ClCompile Include="View.cpp">
-      <Filter>Fichiers sources\App\Graphic\View</Filter>
+    <ClCompile Include="Holder.cpp">
+      <Filter>Fichiers sources\App\Graphic\View\Holder</Filter>
     </ClCompile>
     <ClCompile Include="ApplicationManager.cpp">
       <Filter>Fichiers sources\Managers</Filter>
     </ClCompile>
     <ClCompile Include="Button.cpp">
-      <Filter>Fichiers sources\App\Graphic\View\Action</Filter>
+      <Filter>Fichiers sources\App\Graphic\View\Holder\Box\Action</Filter>
     </ClCompile>
     <ClCompile Include="TextManager.cpp">
       <Filter>Fichiers sources\Managers</Filter>
     </ClCompile>
     <ClCompile Include="TextBox.cpp">
-      <Filter>Fichiers sources\App\Graphic\View\Box</Filter>
+      <Filter>Fichiers sources\App\Graphic\View\Holder\Box</Filter>
+    </ClCompile>
+    <ClCompile Include="View.cpp">
+      <Filter>Fichiers sources\App\Graphic\View</Filter>
+    </ClCompile>
+    <ClCompile Include="DataManager.cpp">
+      <Filter>Fichiers sources\Managers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -128,14 +140,14 @@
     <ClInclude Include="TextureManager.h">
       <Filter>Fichiers d%27en-tête\Managers</Filter>
     </ClInclude>
-    <ClInclude Include="View.h">
-      <Filter>Fichiers d%27en-tête\App\Graphic\View</Filter>
+    <ClInclude Include="Holder.h">
+      <Filter>Fichiers d%27en-tête\App\Graphic\View\Holder</Filter>
     </ClInclude>
     <ClInclude Include="ApplicationManager.h">
       <Filter>Fichiers d%27en-tête\Managers</Filter>
     </ClInclude>
     <ClInclude Include="Button.h">
-      <Filter>Fichiers d%27en-tête\App\Graphic\View\Action</Filter>
+      <Filter>Fichiers d%27en-tête\App\Graphic\View\Holder\Box\Action</Filter>
     </ClInclude>
     <ClInclude Include="Container.h">
       <Filter>Fichiers d%27en-tête\Utils</Filter>
@@ -144,7 +156,13 @@
       <Filter>Fichiers d%27en-tête\Managers</Filter>
     </ClInclude>
     <ClInclude Include="TextBox.h">
-      <Filter>Fichiers d%27en-tête\App\Graphic\View\Box</Filter>
+      <Filter>Fichiers d%27en-tête\App\Graphic\View\Holder\Box</Filter>
+    </ClInclude>
+    <ClInclude Include="View.h">
+      <Filter>Fichiers d%27en-tête\App\Graphic\View</Filter>
+    </ClInclude>
+    <ClInclude Include="DataManager.h">
+      <Filter>Fichiers d%27en-tête\Managers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -50,16 +50,16 @@ void MainSDLWindow::clearRenderer()
 		Utils::SDL_ExitWithError("RenderClear");
 }
 
-/*###### View ######*/
-Container<View>& MainSDLWindow::getViews()
+/*###### Holder ######*/
+Container<Holder>& MainSDLWindow::getHolders()
 {
-	return this->viewList;
+	return this->holderList;
 }
 
-void MainSDLWindow::createView(const char* name, bool isActive, int x, int y,
+void MainSDLWindow::createHolder(const char* name, bool isActive, int x, int y,
 	int w, int h, int colorR, int colorG,
 	int colorB, int colorA)
 {
-	this->viewList.add(name, View::View(isActive, x, y, w, h, colorR, colorG, colorB, colorA));
+	this->holderList.add(name, Holder::Holder(isActive, x, y, w, h, colorR, colorG, colorB, colorA));
 }
-/*###### View ######*/
+/*###### Holder ######*/
