@@ -135,6 +135,7 @@
   <ItemGroup>
     <ClCompile Include="ApplicationManager.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="DataManager.cpp" />
     <ClCompile Include="TextBox.cpp" />
     <ClCompile Include="TextManager.cpp" />
     <ClCompile Include="TextureManager.cpp" />
@@ -151,6 +152,7 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="DataManager.h" />
     <ClInclude Include="Stock.h" />
     <ClInclude Include="ContainerVector.h" />
     <ClInclude Include="Feeder.h" />
