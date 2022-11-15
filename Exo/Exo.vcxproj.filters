@@ -102,9 +102,6 @@
     <ClCompile Include="TextBox.cpp">
       <Filter>Fichiers sources\App\Graphic\View\Box</Filter>
     </ClCompile>
-    <ClCompile Include="DataManager.cpp">
-      <Filter>Fichiers sources\Managers</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utils.h">
@@ -148,9 +145,6 @@
     </ClInclude>
     <ClInclude Include="TextBox.h">
       <Filter>Fichiers d%27en-tête\App\Graphic\View\Box</Filter>
-    </ClInclude>
-    <ClInclude Include="DataManager.h">
-      <Filter>Fichiers d%27en-tête\Managers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
