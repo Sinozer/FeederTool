@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Fichiers sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Fichiers de ressources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Fichiers sources\Utils">
+      <UniqueIdentifier>{e7982dff-d2a0-4a6f-aa53-3c3bdac66dda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Utils">
+      <UniqueIdentifier>{c26d1abf-5119-446b-ab86-cbb66bfa94eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\App">
+      <UniqueIdentifier>{be924319-1dac-4242-b4bc-b5c5ba7d40a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\App\Logic">
+      <UniqueIdentifier>{47de00e6-174f-40f8-adf7-6100797d4e01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\App\Graphic">
+      <UniqueIdentifier>{af3c88b0-9f31-4fd9-865f-fbd2b2fb50e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\App">
+      <UniqueIdentifier>{b7c21dc1-c81b-4de9-bc0f-d89e026f8a0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\App\Logic">
+      <UniqueIdentifier>{352aef5f-68af-4352-8b23-72b629c69f39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\App\Graphic">
+      <UniqueIdentifier>{8311f099-b057-43a5-a87e-4e0d27bc5f4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Managers">
+      <UniqueIdentifier>{53815977-c19f-463f-90eb-762c30c507b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Managers">
+      <UniqueIdentifier>{9d9f94d8-8195-46c6-b15c-52dadec28949}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\App\Graphic\View">
+      <UniqueIdentifier>{f956ade0-d31f-4c59-96ae-08f014db26c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\App\Graphic\View">
+      <UniqueIdentifier>{53d31414-c9c1-41e9-8dc4-923c9931ed5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\App\Graphic\View\Action">
+      <UniqueIdentifier>{6043f5a5-bc95-4bcc-863c-66886b8497f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\App\Graphic\View\Action">
+      <UniqueIdentifier>{58b57290-fdde-4f02-9346-efeb41ea82f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\App\Graphic\View\Box">
+      <UniqueIdentifier>{b0bbc0ab-08ad-408b-a17e-8235f364f6b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\App\Graphic\View\Box">
+      <UniqueIdentifier>{4c6d6855-741b-4a03-94ba-512a53558bdc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Utils.cpp">
+      <Filter>Fichiers sources\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>Fichiers sources\App</Filter>
+    </ClCompile>
+    <ClCompile Include="Stock.cpp">
+      <Filter>Fichiers sources\App\Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="Feeder.cpp">
+      <Filter>Fichiers sources\App\Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="MainSDLWindow.cpp">
+      <Filter>Fichiers sources\App\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="Product.cpp">
+      <Filter>Fichiers sources\App\Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>Fichiers sources\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="View.cpp">
+      <Filter>Fichiers sources\App\Graphic\View</Filter>
+    </ClCompile>
+    <ClCompile Include="ApplicationManager.cpp">
+      <Filter>Fichiers sources\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Fichiers sources\App\Graphic\View\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="TextManager.cpp">
+      <Filter>Fichiers sources\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="TextBox.cpp">
+      <Filter>Fichiers sources\App\Graphic\View\Box</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Utils.h">
+      <Filter>Fichiers d%27en-tête\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="ContainerVector.h">
+      <Filter>Fichiers d%27en-tête\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Application.h">
+      <Filter>Fichiers d%27en-tête\App</Filter>
+    </ClInclude>
+    <ClInclude Include="MainSDLWindow.h">
+      <Filter>Fichiers d%27en-tête\App\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="Feeder.h">
+      <Filter>Fichiers d%27en-tête\App\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Product.h">
+      <Filter>Fichiers d%27en-tête\App\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Stock.h">
+      <Filter>Fichiers d%27en-tête\App\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Fichiers d%27en-tête\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="View.h">
+      <Filter>Fichiers d%27en-tête\App\Graphic\View</Filter>
+    </ClInclude>
+    <ClInclude Include="ApplicationManager.h">
+      <Filter>Fichiers d%27en-tête\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Fichiers d%27en-tête\App\Graphic\View\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="Container.h">
+      <Filter>Fichiers d%27en-tête\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="TextManager.h">
+      <Filter>Fichiers d%27en-tête\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="TextBox.h">
+      <Filter>Fichiers d%27en-tête\App\Graphic\View\Box</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="test.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="LouisGeorgeCafe.ttf">
+      <Filter>Fichiers de ressources</Filter>
+    </Font>
+    <Font Include="LouisGeorgeCafeBold.ttf">
+      <Filter>Fichiers de ressources</Filter>
+    </Font>
+    <Font Include="LouisGeorgeCafeLight.ttf">
+      <Filter>Fichiers de ressources</Filter>
+    </Font>
+  </ItemGroup>
+</Project>
