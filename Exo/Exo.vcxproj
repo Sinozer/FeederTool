@@ -136,6 +136,7 @@
     <ClCompile Include="ApplicationManager.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="DataManager.cpp" />
+    <ClCompile Include="InputBox.cpp" />
     <ClCompile Include="TextBox.cpp" />
     <ClCompile Include="TextManager.cpp" />
     <ClCompile Include="TextureManager.cpp" />
@@ -154,6 +155,7 @@
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="DataManager.h" />
+    <ClInclude Include="InputBox.h" />
     <ClInclude Include="Stock.h" />
     <ClInclude Include="ContainerVector.h" />
     <ClInclude Include="Feeder.h" />
