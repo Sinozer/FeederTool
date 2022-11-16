@@ -16,7 +16,7 @@ protected:
 
 	SDL_Rect rect;
 
-	Holder* parent;
+	Holder* parent = nullptr;
 
 	int colorR;
 	int colorG;

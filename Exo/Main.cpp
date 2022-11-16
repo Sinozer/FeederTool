@@ -4,53 +4,78 @@
 
 const int FPSLimit = 66; // 66 = ~15fps | 33 + ~30fps | 16 = ~60fps
 
-int main( int argc, char* args[] )
+int main(int argc, char* args[])
 {
-	/*ApplicationManager::application.createFeeder("test", time(0) + 600, 550);
-	ApplicationManager::application.getFeeders().getElement("test").debug();*/
-
-	ApplicationManager::application.getWindow()->createHolder("mainHolder", true, 2, 2, ApplicationManager::applicationW / 2 - 4, ApplicationManager::applicationH / 2 - 4, 255, 255, 255, 255);
-	/*cout << ApplicationManager::application.getWindow()->getHolders().getElement("test").getParent().getX() << endl;
-	cout << ApplicationManager::application.getWindow()->getHolders().getElement("test").getParent().getY() << endl;
-	cout << ApplicationManager::application.getWindow()->getHolders().getElement("test").getParent().getW() << endl;
-	cout << ApplicationManager::application.getWindow()->getHolders().getElement("test").getParent().getH() << endl;*/
-	Holder& mainHolder = ApplicationManager::application.getWindow()->getHolders().getElement("mainHolder");
-	mainHolder.createHolder(
-		"listFeeder", true,
-		mainHolder.getX() + 5,
-		mainHolder.getY() + 5,
-		mainHolder.getW() / 3 - 10,
-		mainHolder.getH() - 10,
-		47, 50, 52, 127);
-	mainHolder.getHolders().getElement("listFeeder").createButton(
-		"test", "Feeder", []() {cout << time(0) << endl; },
-		true, false,
-		mainHolder.getHolders().getElement("listFeeder").getX() + 2,
-		mainHolder.getHolders().getElement("listFeeder").getY() + 2,
-		mainHolder.getHolders().getElement("listFeeder").getW() - 4,
-		mainHolder.getHolders().getElement("listFeeder").getH() / 10
-	);
-	mainHolder.createHolder(
-		"changeFeeder", true,
-		mainHolder.getHolders().getElement("listFeeder").getX() + mainHolder.getHolders().getElement("listFeeder").getW() + 5,
-		mainHolder.getY() + 5,
-		(mainHolder.getW() * 2) / 3 - 5,
-		mainHolder.getH() - 10,
-		47, 50, 52, 127);
-	mainHolder.getHolders().getElement("changeFeeder").createTextBox(
-		"title", "CHANGE PAGE", true, true,
-		mainHolder.getHolders().getElement("changeFeeder").getX() + 2,
-		mainHolder.getHolders().getElement("changeFeeder").getY() + 2,
-		mainHolder.getHolders().getElement("changeFeeder").getW() - 4,
-		mainHolder.getHolders().getElement("changeFeeder").getH() / 10
-	);
-	/*mainHolder.getHolders().getElement("changeFeeder").createHolder(
-		"main", true,
-		mainHolder.getHolders().getElement("changeFeeder").getX(),
-		mainHolder.getHolders().getElement("changeFeeder").getTextBoxs().getElement("title").getY() + 5,
-		(mainHolder.getHolders().getElement("changeFeeder").getW() * 2) / 3 - 5,
-		mainHolder.getHolders().getElement("changeFeeder").getH() - 10,
-		47, 50, 52, 127);*/
+	/*ApplicationManager::application.createFeeder("7", time(0) + 600, 550);
+	ApplicationManager::application.getFeeders().getElement("7").debug();*/
+	{
+		ApplicationManager::application.getWindow()->createView("MAIN", true);
+		ApplicationManager::application.getWindow()->getViews().getElement("MAIN")->createHolder("mainHolder", true, 2, 2, ApplicationManager::applicationW / 2 - 4, ApplicationManager::applicationH / 2 - 4, 255, 255, 255, 255);
+		Holder& mainHolder = ApplicationManager::application.getWindow()->getViews().getElement("MAIN")->getHolders().getElement("mainHolder");
+		mainHolder.createHolder(
+			"1", true,
+			mainHolder.getX() + 5,
+			mainHolder.getY() + 5,
+			mainHolder.getW() / 3 - 10,
+			mainHolder.getH() - 10,
+			47, 50, 52, 127);
+		mainHolder.getHolders().getElement("1").createButton(
+			"2", "Feeder", []() { ApplicationManager::application.getWindow()->setCurrentView(ApplicationManager::application.getWindow()->getViews().getElement("5")); cout << "A" << endl; },
+			true, false,
+			mainHolder.getHolders().getElement("1").getX() + 2,
+			mainHolder.getHolders().getElement("1").getY() + 2,
+			mainHolder.getHolders().getElement("1").getW() - 4,
+			mainHolder.getHolders().getElement("1").getH() / 10
+		);
+		mainHolder.createHolder(
+			"3", true,
+			mainHolder.getHolders().getElement("1").getX() + mainHolder.getHolders().getElement("1").getW() + 5,
+			mainHolder.getY() + 5,
+			(mainHolder.getW() * 2) / 3 - 5,
+			mainHolder.getH() - 10,
+			47, 50, 52, 127);
+		mainHolder.getHolders().getElement("3").createTextBox(
+			"4", "FIRST", true, true,
+			mainHolder.getHolders().getElement("3").getX() + 2,
+			mainHolder.getHolders().getElement("3").getY() + 2,
+			mainHolder.getHolders().getElement("3").getW() - 4,
+			mainHolder.getHolders().getElement("3").getH() / 10
+		);
+	}
+	{
+		ApplicationManager::application.getWindow()->createView("5", false);
+		ApplicationManager::application.getWindow()->getViews().getElement("5")->createHolder("secondHolder", true, 2, 2, ApplicationManager::applicationW / 2 - 4, ApplicationManager::applicationH / 2 - 4, 255, 255, 255, 255);
+		Holder& secondHolder = ApplicationManager::application.getWindow()->getViews().getElement("5")->getHolders().getElement("secondHolder");
+		secondHolder.createHolder(
+			"6", true,
+			secondHolder.getX() + 5,
+			secondHolder.getY() + 5,
+			secondHolder.getW() / 3 - 10,
+			secondHolder.getH() - 10,
+			255, 50, 52, 127);
+		secondHolder.getHolders().getElement("6").createButton(
+			"7", "Other", []() { ApplicationManager::application.getWindow()->setCurrentView(ApplicationManager::application.getWindow()->getViews().getElement("MAIN")); cout << "B" << endl; },
+			true, false,
+			secondHolder.getHolders().getElement("6").getX() + 2,
+			secondHolder.getHolders().getElement("6").getY() + 200,
+			secondHolder.getHolders().getElement("6").getW() - 4,
+			secondHolder.getHolders().getElement("6").getH() / 10
+		);
+		secondHolder.createHolder(
+			"8", true,
+			secondHolder.getHolders().getElement("6").getX() + secondHolder.getHolders().getElement("6").getW() + 5,
+			secondHolder.getY() + 5,
+			(secondHolder.getW() * 2) / 3 - 5,
+			secondHolder.getH() - 10,
+			47, 50, 52, 127);
+		secondHolder.getHolders().getElement("8").createTextBox(
+			"9", "CHANGE PAGE", true, true,
+			secondHolder.getHolders().getElement("8").getX() + 2,
+			secondHolder.getHolders().getElement("8").getY() + 2,
+			secondHolder.getHolders().getElement("8").getW() - 4,
+			secondHolder.getHolders().getElement("8").getH() / 10
+		);
+	}
 
 	while (ApplicationManager::application.isRunning())
 	{

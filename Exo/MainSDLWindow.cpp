@@ -1,4 +1,5 @@
 #include "MainSDLWindow.h"
+#include "ApplicationManager.h"
 #include "Utils.h"
 
 MainSDLWindow::MainSDLWindow(const char* title, int width, int height, bool fullScreen)
@@ -42,6 +43,16 @@ int MainSDLWindow::init(const char* title, int width, int height, bool fullScree
 	return 0;
 }
 
+View* MainSDLWindow::getCurrentView()
+{
+	return this->currentView;
+}
+void MainSDLWindow::setCurrentView(View* view)
+{
+	this->currentView = view;
+	ApplicationManager::application.lClick = false;
+}
+
 void MainSDLWindow::clearRenderer()
 {
 	if (SDL_SetRenderDrawColor(this->renderer, 47, 50, 52, 255) != 0)
@@ -51,15 +62,15 @@ void MainSDLWindow::clearRenderer()
 }
 
 /*###### Holder ######*/
-Container<Holder>& MainSDLWindow::getHolders()
+Container<View*>& MainSDLWindow::getViews()
 {
-	return this->holderList;
+	return this->viewList;
 }
 
-void MainSDLWindow::createHolder(const char* name, bool isActive, int x, int y,
-	int w, int h, int colorR, int colorG,
-	int colorB, int colorA)
+void MainSDLWindow::createView(const char* name, bool isActive)
 {
-	this->holderList.add(name, Holder::Holder(isActive, x, y, w, h, colorR, colorG, colorB, colorA));
+	View* view = new View();
+	this->viewList.add(name, view);
+	if (isActive) this->currentView = view;
 }
 /*###### Holder ######*/

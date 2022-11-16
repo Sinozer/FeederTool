@@ -38,7 +38,6 @@ void Application::handleEvents()
 		switch (event.type)
 		{
 		case SDL_QUIT:
-			cout << "QUIT" << endl;
 			this->running = false;
 			break;
 		case SDL_MOUSEMOTION:
@@ -54,9 +53,15 @@ void Application::handleEvents()
 			break;
 		}
 		/*###### Holders ######*/
-		for (auto i = this->window->getHolders().list.begin(); i != this->window->getHolders().list.end(); i++)
+		for (auto i = this->window->getViews().list.begin(); i != this->window->getViews().list.end(); i++)
 		{
-			i->second.handleEvents();
+			if (i->second == ApplicationManager::application.getWindow()->getCurrentView())
+			{
+				for (auto j = i->second->getHolders().list.begin(); j != i->second->getHolders().list.end(); j++)
+				{
+					j->second.handleEvents();
+				}
+			}
 		}
 		/*###### Holders ######*/
 	}
@@ -65,9 +70,15 @@ void Application::handleEvents()
 void Application::update()
 {
 	/*###### Holders ######*/
-	for (auto i = this->window->getHolders().list.begin(); i != this->window->getHolders().list.end(); i++)
+	for (auto i = this->window->getViews().list.begin(); i != this->window->getViews().list.end(); i++)
 	{
-		i->second.update();
+		if (i->second == ApplicationManager::application.getWindow()->getCurrentView())
+		{
+			for (auto j = i->second->getHolders().list.begin(); j != i->second->getHolders().list.end(); j++)
+			{
+				j->second.update();
+			}
+		}
 	}
 	/*###### Holders ######*/
 }
@@ -77,9 +88,16 @@ void Application::render()
 	this->window->clearRenderer();
 
 	/*###### Holders ######*/
-	for (auto i = this->window->getHolders().list.begin(); i != this->window->getHolders().list.end(); i++)
+	for (auto i = this->window->getViews().list.begin(); i != this->window->getViews().list.end(); i++)
 	{
-		if (i->second.isActive()) i->second.render();
+		if (i->second == ApplicationManager::application.getWindow()->getCurrentView())
+		{
+			for (auto j = i->second->getHolders().list.begin(); j != i->second->getHolders().list.end(); j++)
+			{
+				//cout << j->first << endl;
+				j->second.render();
+			}
+		}
 	}
 
 	//SDL_RenderCopy(this->window->renderer, testTexture, NULL, NULL);

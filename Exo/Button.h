@@ -15,7 +15,7 @@ class Button : public TextBox
 {
 protected:
 	bool hover = false;
-	bool clicked = false;
+	bool click = false;
 
 	SDL_Rect tRect;
 	SDL_Texture* tTexture;

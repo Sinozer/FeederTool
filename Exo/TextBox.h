@@ -34,8 +34,6 @@ public:
 		this->hAlign = hAlign;
 		this->tTexture = ApplicationManager::application.getWindow()->text->loadText(this->text, isTitle);
 		this->updateTRect();
-
-		cout << this->rect.x << endl;
 	};
 	~TextBox();
 

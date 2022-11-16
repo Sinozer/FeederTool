@@ -132,18 +132,21 @@ void Holder::handleEvents()
 	/*###### Holders ######*/
 	for (auto i = this->holderList.list.begin(); i != this->holderList.list.end(); i++)
 	{
+		if (!i->second.isActive()) return;
 		i->second.handleEvents();
 	}
 	/*###### Holders ######*/
 	/*###### TextBoxs ######*/
 	for (auto i = this->textBoxList.list.begin(); i != this->textBoxList.list.end(); i++)
 	{
+		if (!i->second->isActive()) return;
 		i->second->handleEvents();
 	}
 	/*###### TextBoxs ######*/
 	/*###### Buttons ######*/
 	for (auto i = this->buttonList.list.begin(); i != this->buttonList.list.end(); i++)
 	{
+		if (!i->second->isActive()) return;
 		i->second->handleEvents();
 	}
 	/*###### Buttons ######*/
@@ -155,7 +158,7 @@ void Holder::update()
 	/*###### Holders ######*/
 	for (auto i = this->holderList.list.begin(); i != this->holderList.list.end(); i++)
 	{
-		//cout << i->first << endl;
+		if (!i->second.isActive()) return;
 		i->second.update();
 	}
 	/*###### Holders ######*/
@@ -164,6 +167,7 @@ void Holder::update()
 	{
 		for (auto i = this->textBoxList.list.begin(); i != this->textBoxList.list.end(); i++)
 		{
+			if (!i->second->isActive()) return;
 			i->second->update();
 		}
 	}
@@ -173,6 +177,7 @@ void Holder::update()
 	{
 		for (auto i = this->buttonList.list.begin(); i != this->buttonList.list.end(); i++)
 		{
+			if (!i->second->isActive()) return;
 			i->second->update();
 		}
 	}
@@ -188,6 +193,7 @@ void Holder::render()
 	/*###### Holders ######*/
 	for (auto i = this->holderList.list.begin(); i != this->holderList.list.end(); i++)
 	{
+		if (!i->second.isActive()) return;
 		i->second.render();
 	}
 	/*###### Holders ######*/
@@ -196,6 +202,7 @@ void Holder::render()
 	{
 		for (auto i = this->textBoxList.list.begin(); i != this->textBoxList.list.end(); i++)
 		{
+			if (!i->second->isActive()) return;
 			i->second->render();
 		}
 	}
@@ -205,6 +212,7 @@ void Holder::render()
 	{
 		for (auto i = this->buttonList.list.begin(); i != this->buttonList.list.end(); i++)
 		{
+			if (!i->second->isActive()) return;
 			i->second->render();
 		}
 	}
@@ -222,7 +230,7 @@ void Holder::createHolder(const char* name, bool isActive,
 	int colorR, int colorG, int colorB, int colorA)
 {
 	this->holderList.add(name, Holder::Holder(isActive, x, y, w, h, colorR, colorG, colorB, colorA));
-	this->holderList.getElement("name").setParent(this);
+	this->holderList.getElement(name).setParent(this);
 }
 /*###### Holder ######*/
 

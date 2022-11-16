@@ -5,7 +5,7 @@
 
 #include "Container.h"
 
-#include "Holder.h"
+#include "View.h"
 #include "TextManager.h"
 
 class MainSDLWindow
@@ -13,7 +13,8 @@ class MainSDLWindow
 protected:
 	SDL_Window* window;
 
-	Container<Holder> holderList;
+	Container<View*> viewList;
+	View* currentView;
 public:
 	SDL_Renderer* renderer;
 	TextManager* text;
@@ -22,14 +23,14 @@ public:
 	~MainSDLWindow(void);
 
 	int init(const char* title, int width, int height, bool fullScreen);
+	
+	View* getCurrentView();
+	void setCurrentView(View* view);
+
 	void clearRenderer(void);
 
 	/*###### Holder ######*/
-	Container<Holder>& getHolders();
-	void createHolder(const char* name, bool isActive,
-		int x = 0, int y = 0,
-		int w = 0, int h = 0,
-		int colorR = 255, int colorG = 255,
-		int colorB = 255, int colorA = 255);
+	Container<View*>& getViews();
+	void createView(const char* name, bool isActive);
 	/*###### Holder ######*/
 };
