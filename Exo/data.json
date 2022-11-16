@@ -1,25 +1,13 @@
 {
-          "feeders": {
-                    "1": {
-                              "isEated": true,
-                              "timeCreated": 1
-                    },
-                    "2": {
-                              "isEated": true,
-                              "timeCreated": 17368428
-                    },
-                    "3": {
-                              "isEated": true,
-                              "timeCreated": 2727
-                    },
-                    "4": {
-                              "isEated": true,
-                              "timeCreated": 2727
-                    }
-          },
-          "stocks": {
+          "feeders": null,
+          "stock": {
                     "milk": {
-                              "quantity": 10
+                              "quantity": 3,
+                              "timeCreated": 654
+                    },
+                    "petit pois": {
+                              "quantity": 2,
+                              "timeCreated": 6969
                     }
           }
 }

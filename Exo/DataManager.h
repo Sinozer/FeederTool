@@ -8,16 +8,16 @@ class DataManager
 {
 protected:
 public:
-	void static setCategory();
-
-	void static addFeeder(const char* number, int time, bool eat);
-	void static addProduct();
+	void static addFeeder(const char* number, int timeC, int timeT, int quantity, bool eat, bool vomited);
+	void static addProduct(const char* name, int time, int quantity);
+	void static modifyFeeder(const char* number, int time, bool eat);
 
 	//void static modifyFeeder();
 
 	json static getFeeders();
 	json static getProducts();
 	json static getAll();
-	json static templateFeeder(int time, bool eat);
-	json static templateProduct(int time, bool eat);
+	json static templateFeeder(int timeC, int timeT, int quantity, bool eat, bool vomited);
+	json static templateProduct(int time, int quantity);
+	void static newDay();
 };

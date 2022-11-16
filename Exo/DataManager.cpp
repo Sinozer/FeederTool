@@ -13,79 +13,81 @@ json stocks =
 {
   {"feeders",
 	{
-		{"1",
-			{
-				{"timeCreated", 1},
-				{"isEated", true}
-			}
-		},
-		{"2",
-			{
-				{"timeCreated", 17368428},
-				{"isEated", true}
-			}
-		}
+
 	}
-  },
-  {"stocks",
+},
+  {"stock",
 	{
 		{"milk",
 			{
-				{"quantity", 10}
+				{"timeCreated", 1}, //time_t
+				{"quantity", 10}, //int
 			}
 		}
 	}
   }
 };
 
-json DataManager::templateFeeder(int time, bool eat)
+json DataManager::templateFeeder(int timeC, int timeT, int quantity, bool eat, bool vomited)
 {
 	json tempFeeder =
 	{
-		{"timeCreated", time},
-		{"isEated", eat}
+		{"timeCreated", timeC}, //time_t
+		{"timeTaken", timeT}, //time_t
+		{"quantity", quantity}, //int
+		{"isEated", eat},
+		{"isVomited", vomited} //bool
 	};
 	return tempFeeder;
 }
 
-json DataManager::templateProduct(int time, bool eat)
+json DataManager::templateProduct(int time, int quantity)
 {
-	json tempFeeder =
+	json tempProduct =
 	{
-		{"timeCreated", time},
-		{"isEated", eat}
+		{"timeCreated", time}, //time_t
+		{"quantity", quantity}, //int
 	};
-	return tempFeeder;
+	return tempProduct;
 }
 
-
-
-
-
-void DataManager::setCategory()
+void DataManager::newDay()
 {
-
-}
-
-
-void DataManager::addFeeder(const char* number, int time, bool eat)
-{
-	json feeders = DataManager::getFeeders();
-	feeders[number] = DataManager::templateFeeder(time, eat);
-
 	json all = DataManager::getAll();
-	all["feeders"] = feeders;
-	//[number] = DataManager::templateFeeder(time, eat)
-
-	//cout << all << endl;
+	all["feeders"] = {};
 
 	ofstream o("data.json");
 	o << setw(10) << all << endl;
 }
 
-void DataManager::addProduct()
+
+void DataManager::addFeeder(const char* number, int timeC, int timeT, int quantity, bool eat, bool vomited)
+{
+	json feeders = DataManager::getFeeders();
+	cout << (feeders != NULL) << endl;
+	if(feeders != NULL)
+		if (feeders[number] != NULL)return;
+	feeders[number] = DataManager::templateFeeder(timeC, timeT, quantity, eat, vomited);
+
+	json all = DataManager::getAll();
+	all["feeders"] = feeders;
+	ofstream o("data.json");
+	o << setw(10) << all << endl;
+}
+
+void DataManager::addProduct(const char* name, int time, int quantity)
 {
 
+	json products = DataManager::getProducts();
+	if (products[name] != NULL)
+		return;
+	products[name] = DataManager::templateProduct(time, quantity);
+
+	json all = DataManager::getAll();
+	all["stock"] = products;
+
+	ofstream o("data.json");
+	o << setw(10) << all << endl;
 }
 
 
@@ -96,7 +98,7 @@ json DataManager::getFeeders()
 
 json DataManager::getProducts()
 {
-	return DataManager::getAll()["stocks"];
+	return DataManager::getAll()["stock"];
 }
 
 json DataManager::getAll()
