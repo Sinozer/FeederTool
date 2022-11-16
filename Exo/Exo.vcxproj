@@ -71,7 +71,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>D:\Vclib\SDL2-2.24.2\include;C:\Users\qripot\Downloads\single_include\nlohmann;C:\Users\qripot\Downloads\SDL2-2.24.2\include;C:\Users\quent\Desktop\Lib VC\SDL2-2.24.2\include;C:\Users\quent\Desktop\Lib VC\nlohmann;$(IncludePath)</IncludePath>
+    <IncludePath>D:\Vclib\SDL2-2.24.2\include;C:\Users\qripot\Downloads\single_include\nlohmann;C:\Users\qripot\Downloads\SDL2-2.24.2\include;C:\Users\quent\Desktop\Lib VC\SDL2-2.24.2\include;C:\Users\quent\Desktop\Lib VC\nlohmann;D:\Vclib\nlohmann;$(IncludePath)</IncludePath>
     <ReferencePath>$(ReferencePath)</ReferencePath>
     <LibraryPath>C:\Users\qripot\Downloads\SDL2-2.24.2\lib\x64;D:\Vclib\SDL2-2.24.2\lib\x64;C:\Users\quent\Desktop\Lib VC\SDL2-2.24.2\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>

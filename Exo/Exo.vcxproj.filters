@@ -199,4 +199,7 @@
       <Filter>Fichiers de ressources</Filter>
     </Font>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="data.json" />
+  </ItemGroup>
 </Project>
