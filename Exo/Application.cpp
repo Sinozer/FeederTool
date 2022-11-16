@@ -83,9 +83,9 @@ void Application::update()
 	}
 	/*###### Holders ######*/
 
-	DataManager::addFeeder();
+	DataManager::addFeeder("4", 2727, true);
 	//DataManager::getCategory();
-	cout << "All: " << DataManager::getAll() << endl;
+	//cout << "All: " << DataManager::getAll() << endl;
 }
 
 void Application::render()

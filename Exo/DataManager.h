@@ -10,7 +10,7 @@ protected:
 public:
 	void static setCategory();
 
-	void static addFeeder();
+	void static addFeeder(const char* number, int time, bool eat);
 	void static addProduct();
 
 	//void static modifyFeeder();
@@ -18,5 +18,6 @@ public:
 	json static getFeeders();
 	json static getProducts();
 	json static getAll();
-	json static templateFeeder(const char* number, int time, bool eat);
+	json static templateFeeder(int time, bool eat);
+	json static templateProduct(int time, bool eat);
 };

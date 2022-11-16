@@ -11,7 +11,7 @@ using json = nlohmann::json;
 
 json stocks =
 {
-  {"feeder",
+  {"feeders",
 	{
 		{"1",
 			{
@@ -27,7 +27,7 @@ json stocks =
 		}
 	}
   },
-  {"stock",
+  {"stocks",
 	{
 		{"milk",
 			{
@@ -38,16 +38,22 @@ json stocks =
   }
 };
 
-json DataManager::templateFeeder(const char* number, int time, bool eat)
+json DataManager::templateFeeder(int time, bool eat)
 {
 	json tempFeeder =
 	{
-		{number,
-			{
-				{"timeCreated", time},
-				{"isEated", eat}
-			}
-		},
+		{"timeCreated", time},
+		{"isEated", eat}
+	};
+	return tempFeeder;
+}
+
+json DataManager::templateProduct(int time, bool eat)
+{
+	json tempFeeder =
+	{
+		{"timeCreated", time},
+		{"isEated", eat}
 	};
 	return tempFeeder;
 }
@@ -61,12 +67,20 @@ void DataManager::setCategory()
 
 }
 
-void DataManager::addFeeder()
-{	
-	//json stockFeeder = getFeeders();
-	ofstream o("data.json");
-	o << setw(10) << templateFeeder("3", 10, false) << endl;
 
+void DataManager::addFeeder(const char* number, int time, bool eat)
+{
+	json feeders = DataManager::getFeeders();
+	feeders[number] = DataManager::templateFeeder(time, eat);
+
+	json all = DataManager::getAll();
+	all["feeders"] = feeders;
+	//[number] = DataManager::templateFeeder(time, eat)
+
+	//cout << all << endl;
+
+	ofstream o("data.json");
+	o << setw(10) << all << endl;
 }
 
 void DataManager::addProduct()
@@ -77,18 +91,12 @@ void DataManager::addProduct()
 
 json DataManager::getFeeders()
 {
-	ifstream file("data.json");
-	json reader = json::parse(file);
-
-	return reader["feeder"];
+	return DataManager::getAll()["feeders"];
 }
 
 json DataManager::getProducts()
 {
-	ifstream file("data.json");
-	json reader = json::parse(file);
-
-	return reader["stock"];
+	return DataManager::getAll()["stocks"];
 }
 
 json DataManager::getAll()
@@ -98,10 +106,3 @@ json DataManager::getAll()
 
 	return reader;
 }
-
-
-
-
-
-
-

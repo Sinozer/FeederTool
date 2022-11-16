@@ -1,6 +1,25 @@
 {
-          "3": {
-                    "isEated": false,
-                    "timeCreated": 10
+          "feeders": {
+                    "1": {
+                              "isEated": true,
+                              "timeCreated": 1
+                    },
+                    "2": {
+                              "isEated": true,
+                              "timeCreated": 17368428
+                    },
+                    "3": {
+                              "isEated": true,
+                              "timeCreated": 2727
+                    },
+                    "4": {
+                              "isEated": true,
+                              "timeCreated": 2727
+                    }
+          },
+          "stocks": {
+                    "milk": {
+                              "quantity": 10
+                    }
           }
 }
