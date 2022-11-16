@@ -1,15 +1,15 @@
-#include "Button.h"
+#include "InputBox.h"
 
 #include <iostream>
 using namespace std;
 
 #include "ApplicationManager.h"
 
-Button::~Button()
+InputBox::~InputBox()
 {
 }
 
-void Button::handleEvents()
+void InputBox::handleEvents()
 {
 	if (!this->active) return;
 	int x = ApplicationManager::application.mouseX;
@@ -23,18 +23,18 @@ void Button::handleEvents()
 	else this->click = false;
 }
 
-void Button::update()
-{	
+void InputBox::update()
+{
 	if (!this->active) return;
 	if (this->hover && this->click)
 	{
 		this->click = false;
-		this->onClick();
+		this->focus = true;
 	}
-	//else if (!this->click) this->click = false;
+	else if (!this->hover && this->click) this->focus = false;
 }
 
-void Button::render()
+void InputBox::render()
 {
 	if (!this->active) return;
 	SDL_SetRenderDrawColor(ApplicationManager::application.getWindow()->renderer, this->colorR, this->colorG, this->colorB, this->colorA);

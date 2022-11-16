@@ -73,6 +73,12 @@
     <Filter Include="Fichiers d%27en-tête\Temp">
       <UniqueIdentifier>{1dc30fb7-3321-4b1d-b204-fc80ac228547}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\App\Graphic\View\Holder\Box\Action\InputBox">
+      <UniqueIdentifier>{dbd87156-b27f-4f95-b1aa-5ba33bbd7cde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\App\Graphic\View\Holder\Box\Action\InputBox">
+      <UniqueIdentifier>{064a12a5-c02f-4bc2-b34f-b750cfed018d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Utils.cpp">
@@ -119,9 +125,6 @@
     </ClCompile>
     <ClCompile Include="DataManager.cpp">
       <Filter>Fichiers sources\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Project1\Biberon.cpp">
-      <Filter>Fichiers sources\Temp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -173,9 +176,6 @@
     <ClInclude Include="DataManager.h">
       <Filter>Fichiers d%27en-tête\Managers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Project1\Biberon.h">
-      <Filter>Fichiers d%27en-tête\Temp</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="test.png">
@@ -192,10 +192,5 @@
     <Font Include="LouisGeorgeCafeLight.ttf">
       <Filter>Fichiers de ressources</Filter>
     </Font>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="data.json">
-      <Filter>Fichiers de ressources</Filter>
-    </None>
   </ItemGroup>
 </Project>

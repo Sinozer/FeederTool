@@ -57,7 +57,7 @@ int main(int argc, char* args[])
 			"7", "Other", []() { ApplicationManager::application.getWindow()->setCurrentView(ApplicationManager::application.getWindow()->getViews().getElement("MAIN")); cout << "B" << endl; },
 			true, false,
 			secondHolder.getHolders().getElement("6").getX() + 2,
-			secondHolder.getHolders().getElement("6").getY() + 200,
+			secondHolder.getHolders().getElement("6").getY() + 2,
 			secondHolder.getHolders().getElement("6").getW() - 4,
 			secondHolder.getHolders().getElement("6").getH() / 10
 		);

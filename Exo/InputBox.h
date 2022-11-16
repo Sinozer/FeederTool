@@ -11,18 +11,19 @@ using namespace std;
 //#include "Holder.h"
 #include "TextBox.h"
 
-class Button : public TextBox
+class InputBox : public TextBox
 {
 protected:
 	bool hover = false;
 	bool click = false;
+	bool focus = false;
 
 	SDL_Rect tRect;
 	SDL_Texture* tTexture;
 
 	const char* text;
 public:
-	Button(const char* text, function<void()> onClick, bool isActive = true, bool isTitle = false, int x = 0, int y = 0,
+	InputBox(const char* text, bool isActive = true, bool isTitle = false, int x = 0, int y = 0,
 		int w = 0, int h = 0,
 		const char* vAlign = "mid", const char* hAlign = "mid",
 		int colorR = 255, int colorG = 255,
@@ -30,13 +31,12 @@ public:
 		: TextBox(text, isActive, isTitle, x, y, w, h, vAlign, hAlign,
 			colorR, colorG, colorB, colorA) {
 		this->text = text;
-		this->onClick = onClick;
 		this->tTexture = ApplicationManager::application.getWindow()->text->loadText(this->text);
 		SDL_QueryTexture(this->tTexture, NULL, NULL, &this->tRect.w, &this->tRect.h);
 		this->tRect.x = (this->rect.x + this->rect.w / 2) - this->tRect.w / 2;
 		this->tRect.y = (this->rect.y + this->rect.h / 2) - this->tRect.h / 2;
 	};
-	~Button();
+	~InputBox();
 
 	void handleEvents() override;
 	void update() override;
@@ -49,12 +49,10 @@ public:
 		int colorR = 255, int colorG = 255,
 		int colorB = 255, int colorA = 255) = delete;
 
-	Container<Button>& getButtons() = delete;
-	void createButton(const char* name,
+	Container<InputBox>& getInputBoxs() = delete;
+	void createInputBox(const char* name,
 		int x = 0, int y = 0,
 		int w = 0, int h = 0,
 		int colorR = 255, int colorG = 255,
 		int colorB = 255, int colorA = 255) = delete;
-
-	function<void()> onClick = [] {};
 };
