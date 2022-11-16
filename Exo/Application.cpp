@@ -3,6 +3,7 @@
 #include "TextureManager.h"
 
 #include <windows.h>
+#include "DataManager.h"
 
 
 SDL_Texture* testTexture;
@@ -81,6 +82,8 @@ void Application::update()
 		}
 	}
 	/*###### Holders ######*/
+
+	DataManager* data_manager = new DataManager();
 }
 
 void Application::render()
