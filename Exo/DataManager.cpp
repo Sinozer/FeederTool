@@ -16,7 +16,7 @@ json stocks =
 		{"1",
 			{
 				{"timeCreated", 1},
-				{"isEated", false}
+				{"isEated", true}
 			}
 		},
 		{"2",
@@ -38,16 +38,34 @@ json stocks =
   }
 };
 
+json DataManager::templateFeeder(const char* number, int time, bool eat)
+{
+	json tempFeeder =
+	{
+		{number,
+			{
+				{"timeCreated", time},
+				{"isEated", eat}
+			}
+		},
+	};
+	return tempFeeder;
+}
+
+
+
 
 
 void DataManager::setCategory()
 {
-	ofstream o("data.json");
-	o << setw(4) << stocks << endl;
+
 }
 
 void DataManager::addFeeder()
-{
+{	
+	//json stockFeeder = getFeeders();
+	ofstream o("data.json");
+	o << setw(10) << templateFeeder("3", 10, false) << endl;
 
 }
 
@@ -59,19 +77,29 @@ void DataManager::addProduct()
 
 json DataManager::getFeeders()
 {
-	ifstream f("data.json");
-	json data = json::parse(f);
+	ifstream file("data.json");
+	json reader = json::parse(file);
 
-	return data["feeder"];
+	return reader["feeder"];
 }
 
 json DataManager::getProducts()
 {
-	ifstream f("data.json");
-	json data = json::parse(f);
+	ifstream file("data.json");
+	json reader = json::parse(file);
 
-	return data["stock"];
+	return reader["stock"];
 }
+
+json DataManager::getAll()
+{
+	ifstream file("data.json");
+	json reader = json::parse(file);
+
+	return reader;
+}
+
+
 
 
 
