@@ -64,9 +64,35 @@ void DataManager::newDay()
 void DataManager::addFeeder(const char* number, int timeC, int timeT, int quantity, bool eat, bool vomited)
 {
 	json feeders = DataManager::getFeeders();
-	cout << (feeders != NULL) << endl;
-	if(feeders != NULL)
-		if (feeders[number] != NULL)return;
+	if (feeders.size() == 0 || feeders[number] == NULL)
+	{
+		feeders[number] = DataManager::templateFeeder(timeC, timeT, quantity, eat, vomited);
+
+		json all = DataManager::getAll();
+		all["feeders"] = feeders;
+		ofstream o("data.json");
+		o << setw(10) << all << endl;
+	}	
+}
+
+void DataManager::addProduct(const char* name, int time, int quantity)
+{
+	json products = DataManager::getProducts();
+	if (products[name] != NULL)
+		return;
+	products[name] = DataManager::templateProduct(time, quantity);
+
+	json all = DataManager::getAll();
+	all["stock"] = products;
+
+	ofstream o("data.json");
+	o << setw(10) << all << endl;
+}
+
+void DataManager::modifyFeeder(const char* number, int timeC, int timeT, int quantity, bool eat, bool vomited)
+{
+	json feeders = DataManager::getFeeders();
+	if (feeders[number].size() == 0 )return;
 	feeders[number] = DataManager::templateFeeder(timeC, timeT, quantity, eat, vomited);
 
 	json all = DataManager::getAll();
@@ -75,12 +101,10 @@ void DataManager::addFeeder(const char* number, int timeC, int timeT, int quanti
 	o << setw(10) << all << endl;
 }
 
-void DataManager::addProduct(const char* name, int time, int quantity)
+void DataManager::modifyProduct(const char* name, int time, int quantity)
 {
-
 	json products = DataManager::getProducts();
-	if (products[name] != NULL)
-		return;
+	if (products[name].size() == 0 )return;
 	products[name] = DataManager::templateProduct(time, quantity);
 
 	json all = DataManager::getAll();

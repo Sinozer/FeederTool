@@ -84,7 +84,7 @@ void Application::update()
 	/*###### Holders ######*/
 
 	//DataManager::newDay();
-	DataManager::addFeeder("1", 1, 1, 58, false, false);
+	DataManager::modifyFeeder("4", 1, 1, 50, false, false);
 	//DataManager::addProduct("petit pois", 50, 2);
 	//DataManager::getCategory();
 	//cout << "All: " << DataManager::getAll() << endl;

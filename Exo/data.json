@@ -1,5 +1,27 @@
 {
-          "feeders": null,
+          "feeders": {
+                    "1": {
+                              "isEated": false,
+                              "isVomited": false,
+                              "quantity": 50,
+                              "timeCreated": 1,
+                              "timeTaken": 1
+                    },
+                    "2": {
+                              "isEated": false,
+                              "isVomited": false,
+                              "quantity": 50,
+                              "timeCreated": 1,
+                              "timeTaken": 1
+                    },
+                    "3": {
+                              "isEated": false,
+                              "isVomited": false,
+                              "quantity": 50,
+                              "timeCreated": 1,
+                              "timeTaken": 1
+                    }
+          },
           "stock": {
                     "milk": {
                               "quantity": 3,
