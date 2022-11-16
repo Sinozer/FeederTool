@@ -126,6 +126,15 @@
     <ClCompile Include="DataManager.cpp">
       <Filter>Fichiers sources\Managers</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Project1\Biberon.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="InputBox.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Biberon.cpp">
+      <Filter>Fichiers sources\Temp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utils.h">
@@ -176,6 +185,15 @@
     <ClInclude Include="DataManager.h">
       <Filter>Fichiers d%27en-tête\Managers</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Project1\Biberon.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="InputBox.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Biberon.h">
+      <Filter>Fichiers d%27en-tête\Temp</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="test.png">
@@ -192,5 +210,10 @@
     <Font Include="LouisGeorgeCafeLight.ttf">
       <Filter>Fichiers de ressources</Filter>
     </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data.json">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
   </ItemGroup>
 </Project>

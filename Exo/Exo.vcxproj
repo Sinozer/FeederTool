@@ -135,6 +135,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\Project1\Biberon.cpp" />
     <ClCompile Include="ApplicationManager.cpp" />
+    <ClCompile Include="Biberon.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="DataManager.cpp" />
     <ClCompile Include="InputBox.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="..\..\Project1\Biberon.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="ApplicationManager.h" />
+    <ClInclude Include="Biberon.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="DataManager.h" />
     <ClInclude Include="InputBox.h" />
