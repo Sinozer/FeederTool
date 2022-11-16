@@ -133,7 +133,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Project1\Biberon.cpp" />
     <ClCompile Include="ApplicationManager.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="DataManager.cpp" />
@@ -151,7 +150,6 @@
     <ClCompile Include="View.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Project1\Biberon.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="Button.h" />
