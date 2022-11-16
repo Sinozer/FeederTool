@@ -1,5 +1,6 @@
 #include "Holder.h"
 #include "Button.h"
+#include "InputBox.h"
 
 #include "ApplicationManager.h"
 
@@ -150,6 +151,16 @@ void Holder::handleEvents()
 		i->second->handleEvents();
 	}
 	/*###### Buttons ######*/
+	/*###### InputBoxs ######*/
+	if (this->inputBoxList.getLen() > 0)
+	{
+		for (auto i = this->inputBoxList.list.begin(); i != this->inputBoxList.list.end(); i++)
+		{
+			if (!i->second->isActive()) return;
+			i->second->handleEvents();
+		}
+	}
+	/*###### InputBoxs ######*/
 }
 
 void Holder::update()
@@ -182,6 +193,16 @@ void Holder::update()
 		}
 	}
 	/*###### Buttons ######*/
+	/*###### InputBoxs ######*/
+	if (this->inputBoxList.getLen() > 0)
+	{
+		for (auto i = this->inputBoxList.list.begin(); i != this->inputBoxList.list.end(); i++)
+		{
+			if (!i->second->isActive()) return;
+			i->second->update();
+		}
+	}
+	/*###### InputBoxs ######*/
 }
 
 void Holder::render()
@@ -217,6 +238,16 @@ void Holder::render()
 		}
 	}
 	/*###### Buttons ######*/
+	/*###### InputBoxs ######*/
+	if (this->inputBoxList.getLen() > 0)
+	{
+		for (auto i = this->inputBoxList.list.begin(); i != this->inputBoxList.list.end(); i++)
+		{
+			if (!i->second->isActive()) return;
+			i->second->render();
+		}
+	}
+	/*###### InputBoxs ######*/
 }
 
 /*###### Holder ######*/
@@ -234,7 +265,7 @@ void Holder::createHolder(const char* name, bool isActive,
 }
 /*###### Holder ######*/
 
-/*###### TextHolder ######*/
+/*###### TextBox ######*/
 Container<TextBox*>& Holder::getTextBoxs()
 {
 	return this->textBoxList;
@@ -249,7 +280,7 @@ void Holder::createTextBox(const char* name,
 	this->textBoxList.add(name, new TextBox(text, isActive, isTitle, x, y, w, h, vAlign, hAlign, colorR, colorG, colorB, colorA));
 	this->textBoxList.getElement(name)->setParent(this);
 }
-/*###### TextHolder ######*/
+/*###### TextBox ######*/
 
 /*###### Button ######*/
 Container<Button*>& Holder::getButtons()
@@ -267,3 +298,20 @@ void Holder::createButton(const char* name, const char* text, function<void()> o
 	this->buttonList.getElement(name)->setParent(this);
 }
 /*###### Button ######*/
+
+/*###### InputBox ######*/
+Container<InputBox*>& Holder::getInputBoxes()
+{
+	return this->inputBoxList;
+}
+
+void Holder::createInputBox(const char* name,
+	const char* text, bool isActive, bool isTitle,
+	int x, int y, int w, int h,
+	const char* vAlign, const char* hAlign,
+	int colorR, int colorG, int colorB, int colorA)
+{
+	this->inputBoxList.add(name, new InputBox(text, isActive, isTitle, x, y, w, h, vAlign, hAlign, colorR, colorG, colorB, colorA));
+	this->inputBoxList.getElement(name)->setParent(this);
+}
+/*###### InputBox ######*/

@@ -3,31 +3,19 @@
 Product::Product()
 {
 	this->timeCreated = time(0);
-	this->id = NULL;
 	this->name = NULL;
 	this->quantity = NULL;
 }
 
-Product::Product(int id, const char* name, int quantity)
+Product::Product(const char* name, int quantity)
 {
 	this->timeCreated = time(0);
-	this->id = id;
 	this->name = name;
 	this->quantity = quantity;
 }
 
 Product::~Product()
 {
-}
-
-void Product::setId(int id)
-{
-	this->id = id;
-}
-
-int Product::getId()
-{
-	return this->id;
 }
 
 void Product::setName(const char* newName)

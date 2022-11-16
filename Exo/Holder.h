@@ -9,6 +9,7 @@ using namespace std;
 
 class TextBox;
 class Button;
+class InputBox;
 
 class Holder {
 protected:
@@ -34,6 +35,11 @@ protected:
 	/*###### Button ######*/
 	Container<Button*> buttonList;
 	/*###### Button ######*/
+
+	/*###### InputBox ######*/
+	Container<InputBox*> inputBoxList;
+	/*###### InputBox ######*/
+
 public:
 	Holder(bool isActive = true, int x = 0, int y = 0,
 		int w = 0, int h = 0,
@@ -104,4 +110,14 @@ public:
 		int colorR = 255, int colorG = 255,
 		int colorB = 255, int colorA = 255);
 	/*###### Button ######*/
+
+	/*###### InputBox ######*/
+	Container<InputBox*>& getInputBoxes();
+	void createInputBox(const char* name,
+		const char* text, bool isActive = true, bool isTitle = false,
+		int x = 0, int y = 0, int w = 0, int h = 0,
+		const char* vAlign = "mid", const char* hAlign = "mid",
+		int colorR = 255, int colorG = 255,
+		int colorB = 255, int colorA = 255);
+	/*###### InputBox ######*/
 };

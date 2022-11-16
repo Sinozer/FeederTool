@@ -21,6 +21,10 @@ void InputBox::handleEvents()
 	else this->hover = false;
 	if (lClick) this->click = true;
 	else this->click = false;
+
+	//cout << "Hover: " << this->hover << endl;
+	//cout << "Click: " << this->click << endl;
+	//cout << "Focus: " << this->focus << endl;
 }
 
 void InputBox::update()
@@ -32,6 +36,7 @@ void InputBox::update()
 		this->focus = true;
 	}
 	else if (!this->hover && this->click) this->focus = false;
+	if (this->focus) cout << "test" << endl;
 }
 
 void InputBox::render()

@@ -10,8 +10,9 @@ int main(int argc, char* args[])
 	ApplicationManager::application.getFeeders().getElement("7").debug();*/
 	{
 		ApplicationManager::application.getWindow()->createView("MAIN", true);
-		ApplicationManager::application.getWindow()->getViews().getElement("MAIN")->createHolder("mainHolder", true, 2, 2, ApplicationManager::applicationW / 2 - 4, ApplicationManager::applicationH / 2 - 4, 255, 255, 255, 255);
-		Holder& mainHolder = ApplicationManager::application.getWindow()->getViews().getElement("MAIN")->getHolders().getElement("mainHolder");
+		View* mainView = ApplicationManager::application.getWindow()->getViews().getElement("MAIN");
+		mainView->createHolder("mainHolder", true, 2, 2, ApplicationManager::applicationW / 2 - 4, ApplicationManager::applicationH / 2 - 4, 255, 255, 255, 255);
+		Holder& mainHolder = mainView->getHolders().getElement("mainHolder");
 		mainHolder.createHolder(
 			"1", true,
 			mainHolder.getX() + 5,
@@ -38,6 +39,13 @@ int main(int argc, char* args[])
 			"4", "FIRST", true, true,
 			mainHolder.getHolders().getElement("3").getX() + 2,
 			mainHolder.getHolders().getElement("3").getY() + 2,
+			mainHolder.getHolders().getElement("3").getW() - 4,
+			mainHolder.getHolders().getElement("3").getH() / 10
+		);
+		mainHolder.getHolders().getElement("3").createInputBox(
+			"5", "OUIFI", true, true,
+			mainHolder.getHolders().getElement("3").getX() + 2,
+			mainHolder.getHolders().getElement("3").getY() + 200,
 			mainHolder.getHolders().getElement("3").getW() - 4,
 			mainHolder.getHolders().getElement("3").getH() / 10
 		);
