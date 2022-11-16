@@ -175,6 +175,9 @@
     <Font Include="LouisGeorgeCafeBold.ttf" />
     <Font Include="LouisGeorgeCafeLight.ttf" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="data.json" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

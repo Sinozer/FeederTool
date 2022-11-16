@@ -1,9 +1,7 @@
 #include "DataManager.h"
 
 #include <iostream>
-#include <fstream>
 #include <iomanip>
-#include <json.hpp>
 
 using namespace std;
 
@@ -11,24 +9,70 @@ using namespace std;
 using json = nlohmann::json;
 
 
-DataManager::DataManager()
+json stocks =
 {
-
-json stocks = {
-  {"milk", 10},
-  {"test", 1},
+  {"feeder",
+	{
+		{"1",
+			{
+				{"timeCreated", 1},
+				{"isEated", false}
+			}
+		},
+		{"2",
+			{
+				{"timeCreated", 17368428},
+				{"isEated", true}
+			}
+		}
+	}
+  },
+  {"stock",
+	{
+		{"milk",
+			{
+				{"quantity", 10}
+			}
+		}
+	}
+  }
 };
 
 
-	//read json
-	//ifstream f("test.json");
-	//json data = json::parse(f);
+
+void DataManager::setCategory()
+{
+	ofstream o("data.json");
+	o << setw(4) << stocks << endl;
 }
 
-DataManager::~DataManager()
+void DataManager::addFeeder()
 {
 
 }
+
+void DataManager::addProduct()
+{
+
+}
+
+
+json DataManager::getFeeders()
+{
+	ifstream f("data.json");
+	json data = json::parse(f);
+
+	return data["feeder"];
+}
+
+json DataManager::getProducts()
+{
+	ifstream f("data.json");
+	json data = json::parse(f);
+
+	return data["stock"];
+}
+
 
 
 

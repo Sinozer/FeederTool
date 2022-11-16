@@ -83,6 +83,10 @@ void Application::update()
 	}
 	/*###### Holders ######*/
 
+	DataManager::setCategory();
+	//DataManager::getCategory();
+	cout << "FEEDERS: " << DataManager::getFeeders() << endl;
+	cout << "PRODUCTS: " << DataManager::getProducts() << endl;
 }
 
 void Application::render()
