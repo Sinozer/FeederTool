@@ -18,3 +18,11 @@ Comme pour installer la libraire SDL2 il faut définir le chemin d'accés!
 
 ![Capture d’écran 2022-11-17 210428](https://user-images.githubusercontent.com/92248230/202548004-63841af2-64ef-4932-aa40-f2a65aff0804.png)
 
+## Lancez l'application
+
+Il vous suffit de lancer la compilation du programme est une fenêtre souvrira.
+
+## Crédit
+
+Merci à Niels Lohmann d'avoir mis à disposition sa librairie permettant d'utilser des fichiers json facilement en c++
+
