@@ -2,6 +2,7 @@
 
 #include "ApplicationManager.h"
 #include "Biberon.h"
+#include <SDL_mixer.h>
 
 const int FPSLimit = 66; // 66 = ~15fps | 33 + ~30fps | 16 = ~60fps
 
@@ -100,6 +101,29 @@ int main(int argc, char* args[])
 	cout << ApplicationManager::application.stock.getProducts().getElement("test")->getName() << endl;
 	ApplicationManager::application.stock.modifyProduct("test", "otherTest", 12);
 	cout << ApplicationManager::application.stock.getProducts().getElement("otherTest")->getName() << endl;
+
+	if (SDL_Init(SDL_INIT_VIDEO) < 0)return -1;
+
+	if (Mix_OpenAudio(96000, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) < 0)
+	{
+		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Erreur initialisation SDL_mixer : %s", Mix_GetError());
+		SDL_Quit();
+		return -1;
+	}
+
+	Mix_Music* music = Mix_LoadMUS("secret.mp3");
+
+	if (music == nullptr)
+	{
+		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Erreur chargement de la musique : %s", Mix_GetError());
+		Mix_CloseAudio();
+		SDL_Quit();
+		return -1;
+	}
+
+	Mix_PlayMusic(music, -1);
+	Mix_FreeMusic(music);
+	//Mix_CloseAudio(); //stop l'audio
 
 	while (ApplicationManager::application.isRunning())
 	{
