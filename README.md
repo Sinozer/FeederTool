@@ -7,7 +7,7 @@ FeederTool est une application réaliser lors d'un projet au sein du Gaming Camp
 
 ## Comment le compiler ?
 
-### 1) Veuillez suivre ce tutoriel permettant d'installer la librairie SDL2 
+### 1) ### Veuillez suivre ce tutoriel permettant d'installer la librairie SDL2 
 
 ### 2) Installez le fichier json.hpp (https://github.com/nlohmann/json/tree/develop/include/nlohmann)
 
