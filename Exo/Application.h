@@ -21,11 +21,11 @@ protected:
 	Container<Feeder> feederList;		// List of all differents feeders
 	/*###### Feeder ######*/
 
-	/*###### Cart ######*/
-	Stock stock();
-	/*###### Cart ######*/
 
 public:
+	/*###### Stock ######*/
+	Stock stock;
+	/*###### Stock ######*/
 	int mouseX, mouseY; // TODO GET SET
 	bool lClick; // TODO GET SET
 

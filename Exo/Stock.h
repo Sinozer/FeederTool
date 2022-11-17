@@ -8,14 +8,16 @@
 class Stock
 {
 protected:
-	Container<Product> productList;
+	Container<Product*> productList;
 
 public:
 	Stock();
 	~Stock();
 
-	Container<Product>& getProduct();
+	/*###### Product ######*/
+	Container<Product*>& getProducts();
 	void createProduct(const char* name, int quantity);
-	void modifyProduct(const char* name, int quantity);
+	/*###### Product ######*/
+	void modifyProduct(const char* name, const char* newName, int quantity);
 	void deleteProduct(const char* name);
 };

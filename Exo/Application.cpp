@@ -111,10 +111,6 @@ void Application::update()
 	//DataManager::addProduct("petit pois", 50, 2);
 	//DataManager::getCategory();
 	//cout << "All: " << DataManager::getAll() << endl;
-
-	Stock* stock = new Stock();
-
-	stock->createProduct("test", 5);
 }
 
 void Application::render()

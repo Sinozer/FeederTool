@@ -88,6 +88,11 @@ int main(int argc, char* args[])
 		);
 	}
 
+	ApplicationManager::application.stock.createProduct("test", 12);
+	cout << ApplicationManager::application.stock.getProducts().getElement("test")->getName() << endl;
+	ApplicationManager::application.stock.modifyProduct("test", "otherTest", 12);
+	cout << ApplicationManager::application.stock.getProducts().getElement("otherTest")->getName() << endl;
+
 	while (ApplicationManager::application.isRunning())
 	{
 		unsigned int frame_limit = SDL_GetTicks() + FPSLimit;

@@ -11,8 +11,8 @@ protected:
 	int quantity;
 
 public:
-	//Product(const char* name = "New product", int quantity = 1);
 	Product();
+	Product(const char* name = "New product", int quantity = 1);
 	~Product();
 
 	void createProduct(int quantity);
