@@ -2,20 +2,25 @@
 
 Product::Product()
 {
-	this->timeCreated = time(0);
 	this->name = NULL;
 	this->quantity = NULL;
 }
 
-Product::Product(const char* name, int quantity)
-{
-	this->timeCreated = time(0);
-	this->name = name;
-	this->quantity = quantity;
-}
+//Product::Product(const char* name, int quantity)
+//{
+//	this->timeCreated = time(0);
+//	this->name = name;
+//	this->quantity = quantity;
+//}
 
 Product::~Product()
 {
+}
+
+void Product::createProduct(int quantity)
+{
+	this->name = name;
+	this->quantity = quantity;
 }
 
 void Product::setName(const char* newName)

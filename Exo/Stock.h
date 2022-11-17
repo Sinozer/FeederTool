@@ -8,11 +8,14 @@
 class Stock
 {
 protected:
-	time_t timeCreated;			// When application instance is created
-
 	Container<Product> productList;
 
 public:
 	Stock();
 	~Stock();
+
+	Container<Product>& getProduct();
+	void createProduct(const char* name, int quantity);
+	void modifyProduct(const char* name, int quantity);
+	void deleteProduct(const char* name);
 };

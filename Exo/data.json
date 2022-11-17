@@ -32,11 +32,9 @@
           "stock": {
                     "milk": {
                               "quantity": 3,
-                              "timeCreated": 654
                     },
                     "petit pois": {
                               "quantity": 2,
-                              "timeCreated": 6969
                     }
           }
 }

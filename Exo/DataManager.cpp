@@ -17,7 +17,6 @@ json stocks =
 	{
 		{"milk",
 			{
-				{"timeCreated", 1}, //time_t
 				{"quantity", 10}, //int
 			}
 		}
@@ -38,11 +37,10 @@ json DataManager::templateFeeder(int timeC, int timeT, int quantity, bool eat, b
 	return tempFeeder;
 }
 
-json DataManager::templateProduct(int time, int quantity)
+json DataManager::templateProduct(int quantity)
 {
 	json tempProduct =
 	{
-		{"timeCreated", time}, //time_t
 		{"quantity", quantity}, //int
 	};
 	return tempProduct;
@@ -73,12 +71,12 @@ void DataManager::addFeeder(int number, int timeC, int timeT, int quantity, bool
 	}	
 }
 
-void DataManager::addProduct(const char* name, int time, int quantity)
+void DataManager::addProduct(const char* name, int quantity)
 {
 	json products = DataManager::getProducts();
 	if (products[name] != NULL)
 		return;
-	products[name] = DataManager::templateProduct(time, quantity);
+	products[name] = DataManager::templateProduct(quantity);
 
 	json all = DataManager::getAll();
 	all["stock"] = products;
@@ -100,11 +98,11 @@ void DataManager::modifyFeeder(int number, int timeC, int timeT, int quantity, b
 	o << setw(10) << all << endl;
 }
 
-void DataManager::modifyProduct(const char* name, int time, int quantity)
+void DataManager::modifyProduct(const char* name, int quantity)
 {
 	json products = DataManager::getProducts();
 	if (products[name].size() == 0 )return;
-	products[name] = DataManager::templateProduct(time, quantity);
+	products[name] = DataManager::templateProduct(quantity);
 
 	json all = DataManager::getAll();
 	all["stock"] = products;

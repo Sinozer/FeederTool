@@ -6,15 +6,16 @@ using namespace std;
 class Product
 {
 protected:
-	time_t timeCreated;
 
 	const char* name;
 	int quantity;
 
 public:
+	//Product(const char* name = "New product", int quantity = 1);
 	Product();
-	Product(const char* name = "New product", int quantity = 1);
 	~Product();
+
+	void createProduct(int quantity);
 
 	void setName(const char* newName);
 	const char* getName();
