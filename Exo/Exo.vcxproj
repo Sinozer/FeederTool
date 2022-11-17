@@ -172,6 +172,7 @@
     <ClInclude Include="View.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Feeder.png" />
     <Image Include="test.png" />
   </ItemGroup>
   <ItemGroup>

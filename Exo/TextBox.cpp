@@ -12,8 +12,6 @@ TextBox::~TextBox()
 void TextBox::updateTRect()
 {
 	SDL_QueryTexture(this->tTexture, NULL, NULL, &this->tRect.w, &this->tRect.h);
-	/*cout << "w: " << this->tRect.w << endl;
-	cout << "w: " << this->tRect.h << endl;*/
 	if (this->vAlign == "top")
 		this->tRect.y = this->rect.y;
 	else if (this->vAlign == "bot")

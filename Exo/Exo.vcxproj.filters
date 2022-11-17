@@ -193,6 +193,9 @@
     <Image Include="test.png">
       <Filter>Fichiers de ressources</Filter>
     </Image>
+    <Image Include="Feeder.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Font Include="LouisGeorgeCafe.ttf">

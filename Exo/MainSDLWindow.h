@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <SDL.h>
+#include <SDL_mixer.h>
 
 #include "Container.h"
 
@@ -18,6 +19,8 @@ protected:
 public:
 	SDL_Renderer* renderer;
 	TextManager* text;
+
+	Mix_Music* EEG;
 
 	MainSDLWindow(const char* title, int width, int height, bool fullScreen);
 	~MainSDLWindow(void);

@@ -13,7 +13,7 @@ Application::Application()
 {
 	this->timeCreated = time(0);
 
-	this->window = new MainSDLWindow("Feeder tool", ApplicationManager::applicationW / 2, ApplicationManager::applicationH / 2, false);
+	this->window = new MainSDLWindow("Feeder tool", ApplicationManager::applicationW, ApplicationManager::applicationH, false);
 	this->running = true;
 
 	this->mouseX = 0;

@@ -7,6 +7,7 @@ MainSDLWindow::MainSDLWindow(const char* title, int width, int height, bool full
 	this->window = NULL;
 	this->renderer = NULL;
 	this->text = NULL;
+	this->EEG = NULL;
 
 	this->init(title, width, height, fullScreen);
 	if (SDL_SetRenderDrawBlendMode(this->renderer, SDL_BLENDMODE_BLEND) != 0)
@@ -21,6 +22,8 @@ MainSDLWindow::~MainSDLWindow()
 		SDL_DestroyRenderer(this->renderer);
 	if (this->window != NULL)
 		SDL_DestroyWindow(this->window);
+	if (this->EEG != NULL)
+		Mix_CloseAudio();
 }
 
 int MainSDLWindow::init(const char* title, int width, int height, bool fullScreen)
@@ -37,9 +40,17 @@ int MainSDLWindow::init(const char* title, int width, int height, bool fullScree
 	if (this->renderer == NULL)
 		Utils::SDL_ExitWithError("CreateRenderer");
 	SDL_SetRenderDrawColor(this->renderer, 255, 255, 255, 255);
-	
+	if (Mix_OpenAudio(96000, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) < 0)
+		Utils::SDL_ExitWithError("Erreur initialisation SDL_mixer");
+	this->EEG = Mix_LoadMUS("secret.mp3");
+	if (this->EEG == nullptr)
+	{
+		Mix_CloseAudio();
+		Utils::SDL_ExitWithError("Erreur chargement de la musique");
+	}
+
 	this->text = new TextManager(this->renderer, "LouisGeorgeCafeBold.ttf");
-	
+
 	return 0;
 }
 

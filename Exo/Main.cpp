@@ -1,4 +1,4 @@
-#include "Utils.h"
+﻿#include "Utils.h"
 
 #include "ApplicationManager.h"
 #include "Biberon.h"
@@ -10,26 +10,159 @@ int main(int argc, char* args[])
 {
 	MainSDLWindow* window = ApplicationManager::application.getWindow();
 
-	window->createView("MAIN", true);
-	View* mainView = window->getViews().getElement("MAIN");
+	{ // MAIN_VIEW
+		window->createView("MAIN_VIEW", true);
+		View* mainView = window->getViews().getElement("MAIN_VIEW");
 
-	mainView->createHolder(
-		"MAIN", true,
-		10, 10,
-		ApplicationManager::applicationW / 2 - 20, ApplicationManager::applicationH / 2 - 20,
-		0, 0, 0, 0
-	);
-	Holder& mainHolder = mainView->getHolders().getElement("mainHolder");
+		mainView->createHolder(
+			"MAIN_HOLDER", true,
+			10, 10,
+			ApplicationManager::applicationW - 20, ApplicationManager::applicationH - 20,
+			0, 0, 0, 0
+		);
+		Holder& mainHolder = mainView->getHolders().getElement("MAIN_HOLDER");
 
-	/*mainHolder.createHolder(
-		"FEEDER_IMAGE", true,
-		mainHolder.getW() / 4, mainHolder.getH() / 4,
-		mainHolder.getW() / 4, mainHolder.getH() / 4,
+		mainHolder.createHolder(
+			"FEEDER_IMAGE", true,
+			(mainHolder.getX() + mainHolder.getW()) / 2.7, (mainHolder.getY() + mainHolder.getH()) / 8,
+			mainHolder.getW() / 2, mainHolder.getH() / 2,
+			255, 255, 255, 0
+		);
+		Holder& feederImageC = mainHolder.getHolders().getElement("FEEDER_IMAGE");
 
+		feederImageC.createImage(
+		"FEEDER_IMAGE", "Feeder.png"
+		);
+
+		mainHolder.createButton(
+			"FEEDER_BUTTON", "Biberon",
+			[]() { ApplicationManager::application.getWindow()->setCurrentView(ApplicationManager::application.getWindow()->getViews().getElement("FEEDER_VIEW")); },
+			true, false,
+			(mainHolder.getX() + mainHolder.getW()) / 4, (mainHolder.getY() + mainHolder.getH()) / 1.4,
+			mainHolder.getW() / 2, mainHolder.getH() / 10,
+			"mid", "mid", 255, 255, 255, 127
+		);
+
+		mainHolder.createButton(
+			"STOCK_BUTTON", "Stock",
+			[]() { ApplicationManager::application.getWindow()->setCurrentView(ApplicationManager::application.getWindow()->getViews().getElement("STOCK_VIEW")); },
+			true, false,
+			(mainHolder.getX() + mainHolder.getW()) / 4, (mainHolder.getY() + mainHolder.getH()) / 1.2,
+			mainHolder.getW() / 2, mainHolder.getH() / 10,
+			"mid", "mid", 255, 255, 255, 127
+		);
+	}
+	{ // FEEDER_VIEW
+		window->createView("FEEDER_VIEW", false);
+		View* mainView = window->getViews().getElement("FEEDER_VIEW");
+
+		mainView->createHolder(
+			"MAIN_HOLDER", true,
+			10, 10,
+			ApplicationManager::applicationW - 20, ApplicationManager::applicationH - 20,
+			0, 0, 0, 0
+		);
+		Holder& mainHolder = mainView->getHolders().getElement("MAIN_HOLDER");
+
+		mainHolder.createButton(
+			"BACK_BUTTON", "Back",
+			[]() { ApplicationManager::application.getWindow()->setCurrentView(ApplicationManager::application.getWindow()->getViews().getElement("MAIN_VIEW")); },
+			true, false,
+			mainHolder.getX(), mainHolder.getY(),
+			mainHolder.getW() / 8, mainHolder.getH() / 15,
+			"mid", "mid", 255, 255, 255, 127
+		);
+
+		mainHolder.createButton(
+			"ADD_BUTTON", "Ajouter un biberon",
+			[]() { ApplicationManager::application.getWindow()->setCurrentView(ApplicationManager::application.getWindow()->getViews().getElement("ADD_FEEDER_VIEW")); },
+			true, false,
+			(mainHolder.getX() + mainHolder.getW()) / 4, (mainHolder.getY() + mainHolder.getH()) / 1.2,
+			mainHolder.getW() / 2, mainHolder.getH() / 10,
+			"mid", "mid", 255, 255, 255, 127
+		);
+	}
+	{ // ADD_FEEDER_VIEW
+		window->createView("ADD_FEEDER_VIEW", false);
+		View* mainView = window->getViews().getElement("ADD_FEEDER_VIEW");
+
+		mainView->createHolder(
+			"MAIN_HOLDER", true,
+			10, 10,
+			ApplicationManager::applicationW - 20, ApplicationManager::applicationH - 20,
+			0, 0, 0, 0
+		);
+		Holder& mainHolder = mainView->getHolders().getElement("MAIN_HOLDER");
+
+		mainHolder.createButton(
+			"BACK_BUTTON", "Back",
+			[]() { ApplicationManager::application.getWindow()->setCurrentView(ApplicationManager::application.getWindow()->getViews().getElement("FEEDER_VIEW")); },
+			true, false,
+			mainHolder.getX(), mainHolder.getY(),
+			mainHolder.getW() / 8, mainHolder.getH() / 15,
+			"mid", "mid", 255, 255, 255, 127
+		);
+
+		mainHolder.createTextBox(
+			"TITLE", "+ Biberon",
+			true, true,
+			(mainHolder.getX() + mainHolder.getW()) / 4, (mainHolder.getX() + mainHolder.getW()) / 20,
+			mainHolder.getW() / 2, mainHolder.getH() / 10,
+			"mid", "mid", 255, 255, 255, 63
+		);
+
+		/*mainHolder.createTextBox(
+			"QUANTITY", to_string(time(0)),
+			true, true,
+			(mainHolder.getX() + mainHolder.getW()) / 4, (mainHolder.getX() + mainHolder.getW()) / 20,
+			mainHolder.getW() / 2, mainHolder.getH() / 10,
+			"mid", "mid", 255, 255, 255, 63
 		);*/
 
+		mainHolder.createInputBox(
+			"QUANTITY", true, "Quantité", true, false,
+			(mainHolder.getX() + mainHolder.getW()) / 4, (mainHolder.getX() + mainHolder.getW()) / 1.6,
+			mainHolder.getW() / 2, mainHolder.getH() / 14
+		);
+
+		mainHolder.createInputBox(
+			"HOUR", true, "Timestamp :d", true, false,
+			(mainHolder.getX() + mainHolder.getW()) / 4, (mainHolder.getX() + mainHolder.getW()) / 1.4,
+			mainHolder.getW() / 2, mainHolder.getH() / 14
+		);
+
+		mainHolder.createButton(
+			"ADD_BUTTON", "Ajouter un biberon",
+			[]() {  },
+			true, false,
+			(mainHolder.getX() + mainHolder.getW()) / 4, (mainHolder.getY() + mainHolder.getH()) / 1.2,
+			mainHolder.getW() / 2, mainHolder.getH() / 10,
+			"mid", "mid", 255, 255, 255, 127
+		);
+	}
+	{ // STOCK_VIEW
+		window->createView("STOCK_VIEW", false);
+		View* mainView = window->getViews().getElement("STOCK_VIEW");
+
+		mainView->createHolder(
+			"MAIN_HOLDER", true,
+			10, 10,
+			ApplicationManager::applicationW - 20, ApplicationManager::applicationH - 20,
+			0, 0, 0, 0
+		);
+		Holder& mainHolder = mainView->getHolders().getElement("MAIN_HOLDER");
+
+		mainHolder.createButton(
+			"BACK_BUTTON", "Back",
+			[]() { ApplicationManager::application.getWindow()->setCurrentView(ApplicationManager::application.getWindow()->getViews().getElement("MAIN_VIEW")); },
+			true, false,
+			mainHolder.getX(), mainHolder.getY(),
+			mainHolder.getW() / 8, mainHolder.getH() / 15,
+			"mid", "mid", 255, 255, 255, 127
+		);
+	}
 	/*{
-		ApplicationManager::application.getWindow()->createView("MAIN", false);
+		ApplicationManager::application.getWindow()->createView("MAIN", true);
 		View* mainView = ApplicationManager::application.getWindow()->getViews().getElement("MAIN");
 		mainView->createHolder("mainHolder", true, 2, 2, ApplicationManager::applicationW / 2 - 4, ApplicationManager::applicationH / 2 - 4, 255, 255, 255, 255);
 		Holder& mainHolder = mainView->getHolders().getElement("mainHolder");
@@ -81,7 +214,7 @@ int main(int argc, char* args[])
 			"mid", "left"
 		);
 	}*/
-	{
+	/*{
 		ApplicationManager::application.getWindow()->createView("5", false);
 		ApplicationManager::application.getWindow()->getViews().getElement("5")->createHolder("secondHolder", true, 2, 2, ApplicationManager::applicationW / 2 - 4, ApplicationManager::applicationH / 2 - 4, 255, 255, 255, 255);
 		Holder& secondHolder = ApplicationManager::application.getWindow()->getViews().getElement("5")->getHolders().getElement("secondHolder");
@@ -114,14 +247,14 @@ int main(int argc, char* args[])
 			secondHolder.getHolders().getElement("8").getW() - 4,
 			secondHolder.getHolders().getElement("8").getH() / 10
 		);
-	}
+	}*/
 
 	/*ApplicationManager::application.stock.createProduct("test", 12);
 	cout << ApplicationManager::application.stock.getProducts().getElement("test")->getName() << endl;
 	ApplicationManager::application.stock.modifyProduct("test", "otherTest", 12);
 	cout << ApplicationManager::application.stock.getProducts().getElement("otherTest")->getName() << endl;*/
 
-	if (SDL_Init(SDL_INIT_VIDEO) < 0)return -1;
+	/*if (SDL_Init(SDL_INIT_VIDEO) < 0)return -1;
 
 	if (Mix_OpenAudio(96000, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) < 0)
 	{
@@ -138,11 +271,9 @@ int main(int argc, char* args[])
 		Mix_CloseAudio();
 		SDL_Quit();
 		return -1;
-	}
+	}*/
 
-	Mix_PlayMusic(music, -1);
-	Mix_FreeMusic(music);
-	//Mix_CloseAudio(); //stop l'audio
+	//Mix_PlayMusic(ApplicationManager::application.getWindow()->EEG, -1);
 
 	while (ApplicationManager::application.isRunning())
 	{
@@ -153,6 +284,8 @@ int main(int argc, char* args[])
 		ApplicationManager::application.update();
 		ApplicationManager::application.render();
 	}
+
+	//Mix_FreeMusic(ApplicationManager::application.getWindow()->EEG);
 
 	ApplicationManager::application.clean();
 

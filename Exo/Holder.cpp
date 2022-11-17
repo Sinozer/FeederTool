@@ -224,6 +224,7 @@ void Holder::render()
 	{
 		for (auto i = this->imageList.list.begin(); i != this->imageList.list.end(); i++)
 		{
+			SDL_QueryTexture(i->second, NULL, NULL, &this->rect.w, &this->rect.h);
 			SDL_RenderCopy(ApplicationManager::application.getWindow()->renderer, i->second, NULL, &this->rect);
 		}
 	}
