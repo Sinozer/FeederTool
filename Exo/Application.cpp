@@ -32,11 +32,6 @@ bool Application::isRunning()
 	return this->running;
 }
 
-const char* letters[30] = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
-"O", "P", "Q", "R", "S", "T", "U", "V", "V", "W", "X", "Y", "Z"};
-
-const char* numbers[11] = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-
 void Application::handleEvents()
 {
 	SDL_Event event;
@@ -72,6 +67,36 @@ void Application::handleEvents()
 			}
 			break;
 		}
+		case SDL_KEYDOWN:
+			switch (event.key.keysym.sym)
+			{
+			case SDLK_BACKSPACE:
+				if (this->both.size() > 0)
+				{
+					this->both.erase(this->both.size() - 1);
+				}
+				this->backSpace = true;
+				break;
+			case SDLK_RETURN:
+				this->bReturn = true;
+				break;
+			default:
+				break;
+			}
+			break;
+		case SDL_KEYUP:
+			switch (event.key.keysym.sym)
+			{
+			case SDLK_BACKSPACE:
+				this->backSpace = false;
+				break;
+			case SDLK_RETURN:
+				this->bReturn = false;
+				break;
+			default:
+				break;
+			}
+			break;
 		default:
 			break;
 		}

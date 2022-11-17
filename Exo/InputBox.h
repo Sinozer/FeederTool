@@ -19,6 +19,8 @@ protected:
 	bool focus = false;
 	bool isInt = false;
 
+	int count = 0;
+
 	SDL_Rect tRect;
 	SDL_Texture* tTexture;
 

@@ -50,15 +50,20 @@ void InputBox::updateTRect()
 void InputBox::update()
 {
 	if (!this->active) return;
-	if (this->hover && this->click)
+	if (this->hover && this->click && !this->focus)
 	{
 		this->click = false;
 		this->focus = true;
+		ApplicationManager::application.both = this->text;
 	}
 	else if (!this->hover && this->click) this->focus = false;
-	if (this->focus) this->text = ApplicationManager::application.both;
-	this->tTexture = ApplicationManager::application.getWindow()->text->loadText(this->text, this->isTitle);
-	this->updateTRect();
+	if (this->focus)
+	{
+		this->text = ApplicationManager::application.both;
+		this->tTexture = ApplicationManager::application.getWindow()->text->loadText(this->text, this->isTitle);
+		this->updateTRect();
+	}
+
 }
 
 void InputBox::render()
@@ -67,6 +72,21 @@ void InputBox::render()
 	SDL_SetRenderDrawColor(ApplicationManager::application.getWindow()->renderer, this->colorR, this->colorG, this->colorB, this->colorA);
 	SDL_RenderFillRect(ApplicationManager::application.getWindow()->renderer, &this->rect);
 
+	if (this->focus)
+	{
+		if (this->count < 7)
+		{
+			SDL_Rect temp;
+			temp.x = this->tRect.x + this->tRect.w;
+			temp.y = this->tRect.y;
+			temp.w = 1;
+			temp.h = this->tRect.h;
+			SDL_SetRenderDrawColor(ApplicationManager::application.getWindow()->renderer, 0, 0, 0, 255);
+			SDL_RenderFillRect(ApplicationManager::application.getWindow()->renderer, &temp);
+		}
+		this->count++;
+		if (this->count == 16) this->count = 0;
+	}
 	//SDL_SetRenderDrawColor(ApplicationManager::application.getWindow()->renderer, 0, 0, 255, 255);
 	//SDL_RenderFillRect(ApplicationManager::application.getWindow()->renderer, &this->tRect);
 

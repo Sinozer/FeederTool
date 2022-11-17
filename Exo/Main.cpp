@@ -52,6 +52,14 @@ int main(int argc, char* args[])
 			mainHolder.getHolders().getElement("3").getH() / 10,
 			"mid", "left"
 		);
+		mainHolder.getHolders().getElement("3").createInputBox(
+			"6", false, "NONFI", true, false,
+			mainHolder.getHolders().getElement("3").getX() + 2,
+			mainHolder.getHolders().getElement("3").getY() + 300,
+			mainHolder.getHolders().getElement("3").getW() - 4,
+			mainHolder.getHolders().getElement("3").getH() / 10,
+			"mid", "left"
+		);
 	}
 	{
 		ApplicationManager::application.getWindow()->createView("5", false);

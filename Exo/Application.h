@@ -23,11 +23,11 @@ protected:
 
 
 public:
-	/*###### Stock ######*/
+	/*###### Cart ######*/
 	Stock stock;
-	/*###### Stock ######*/
+	/*###### Cart ######*/
 	int mouseX, mouseY; // TODO GET SET
-	bool lClick; // TODO GET SET
+	bool lClick, backSpace, bReturn; // TODO GET SET
 
 	string both = "";
 	string letters = "";
