@@ -126,11 +126,11 @@
     <ClCompile Include="DataManager.cpp">
       <Filter>Fichiers sources\Managers</Filter>
     </ClCompile>
-    <ClCompile Include="InputBox.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="Biberon.cpp">
       <Filter>Fichiers sources\Temp</Filter>
+    </ClCompile>
+    <ClCompile Include="InputBox.cpp">
+      <Filter>Fichiers sources\App\Graphic\View\Holder\Box\Action\InputBox</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -182,11 +182,11 @@
     <ClInclude Include="DataManager.h">
       <Filter>Fichiers d%27en-tête\Managers</Filter>
     </ClInclude>
-    <ClInclude Include="InputBox.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="Biberon.h">
       <Filter>Fichiers d%27en-tête\Temp</Filter>
+    </ClInclude>
+    <ClInclude Include="InputBox.h">
+      <Filter>Fichiers d%27en-tête\App\Graphic\View\Holder\Box\Action\InputBox</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

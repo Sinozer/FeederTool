@@ -19,8 +19,6 @@ Application::Application()
 	this->mouseX = 0;
 	this->mouseY = 0;
 	this->lClick = false;
-
-	testTexture = TextureManager::loadTexture("test.png", this->window->renderer);
 }
 
 Application::~Application()

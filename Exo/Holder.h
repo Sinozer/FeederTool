@@ -28,6 +28,10 @@ protected:
 	Container<Holder> holderList;
 	/*###### Holder ######*/
 
+	/*###### Image ######*/
+	Container<SDL_Texture*> imageList;
+	/*###### Image ######*/
+
 	/*###### TextBox ######*/
 	Container<TextBox*> textBoxList;
 	/*###### TextBox ######*/
@@ -90,6 +94,11 @@ public:
 		int colorR = 255, int colorG = 255,
 		int colorB = 255, int colorA = 255);
 	/*###### Holder ######*/
+
+	/*###### Image ######*/
+	Container<SDL_Texture*>& getImages();
+	void createImage(const char* name, const char* fileName);
+	/*###### Image ######*/
 
 	/*###### TextBox ######*/
 	Container<TextBox*>& getTextBoxs();

@@ -8,10 +8,28 @@ const int FPSLimit = 66; // 66 = ~15fps | 33 + ~30fps | 16 = ~60fps
 
 int main(int argc, char* args[])
 {
-	/*ApplicationManager::application.createFeeder("7", time(0) + 600, 550);
-	ApplicationManager::application.getFeeders().getElement("7").debug();*/
-	{
-		ApplicationManager::application.getWindow()->createView("MAIN", true);
+	MainSDLWindow* window = ApplicationManager::application.getWindow();
+
+	window->createView("MAIN", true);
+	View* mainView = window->getViews().getElement("MAIN");
+
+	mainView->createHolder(
+		"MAIN", true,
+		10, 10,
+		ApplicationManager::applicationW / 2 - 20, ApplicationManager::applicationH / 2 - 20,
+		0, 0, 0, 0
+	);
+	Holder& mainHolder = mainView->getHolders().getElement("mainHolder");
+
+	/*mainHolder.createHolder(
+		"FEEDER_IMAGE", true,
+		mainHolder.getW() / 4, mainHolder.getH() / 4,
+		mainHolder.getW() / 4, mainHolder.getH() / 4,
+
+		);*/
+
+	/*{
+		ApplicationManager::application.getWindow()->createView("MAIN", false);
 		View* mainView = ApplicationManager::application.getWindow()->getViews().getElement("MAIN");
 		mainView->createHolder("mainHolder", true, 2, 2, ApplicationManager::applicationW / 2 - 4, ApplicationManager::applicationH / 2 - 4, 255, 255, 255, 255);
 		Holder& mainHolder = mainView->getHolders().getElement("mainHolder");
@@ -37,6 +55,7 @@ int main(int argc, char* args[])
 			(mainHolder.getW() * 2) / 3 - 5,
 			mainHolder.getH() - 10,
 			47, 50, 52, 127);
+		mainHolder.getHolders().getElement("3").createImage("test", "test.png");
 		mainHolder.getHolders().getElement("3").createTextBox(
 			"4", "FIRST", true, true,
 			mainHolder.getHolders().getElement("3").getX() + 2,
@@ -61,7 +80,7 @@ int main(int argc, char* args[])
 			mainHolder.getHolders().getElement("3").getH() / 10,
 			"mid", "left"
 		);
-	}
+	}*/
 	{
 		ApplicationManager::application.getWindow()->createView("5", false);
 		ApplicationManager::application.getWindow()->getViews().getElement("5")->createHolder("secondHolder", true, 2, 2, ApplicationManager::applicationW / 2 - 4, ApplicationManager::applicationH / 2 - 4, 255, 255, 255, 255);
@@ -97,10 +116,10 @@ int main(int argc, char* args[])
 		);
 	}
 
-	ApplicationManager::application.stock.createProduct("test", 12);
+	/*ApplicationManager::application.stock.createProduct("test", 12);
 	cout << ApplicationManager::application.stock.getProducts().getElement("test")->getName() << endl;
 	ApplicationManager::application.stock.modifyProduct("test", "otherTest", 12);
-	cout << ApplicationManager::application.stock.getProducts().getElement("otherTest")->getName() << endl;
+	cout << ApplicationManager::application.stock.getProducts().getElement("otherTest")->getName() << endl;*/
 
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)return -1;
 

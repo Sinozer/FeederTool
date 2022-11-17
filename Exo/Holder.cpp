@@ -3,6 +3,7 @@
 #include "InputBox.h"
 
 #include "ApplicationManager.h"
+#include "TextureManager.h"
 
 Holder::Holder(bool isActive,
 	int x, int y, int w, int h,
@@ -218,6 +219,15 @@ void Holder::render()
 		i->second.render();
 	}
 	/*###### Holders ######*/
+	/*###### Images ######*/
+	if (this->imageList.getLen() > 0)
+	{
+		for (auto i = this->imageList.list.begin(); i != this->imageList.list.end(); i++)
+		{
+			SDL_RenderCopy(ApplicationManager::application.getWindow()->renderer, i->second, NULL, &this->rect);
+		}
+	}
+	/*###### Images ######*/
 	/*###### TextBoxs ######*/
 	if (this->textBoxList.getLen() > 0)
 	{
@@ -262,6 +272,18 @@ void Holder::createHolder(const char* name, bool isActive,
 {
 	this->holderList.add(name, Holder::Holder(isActive, x, y, w, h, colorR, colorG, colorB, colorA));
 	this->holderList.getElement(name).setParent(this);
+}
+/*###### Holder ######*/
+
+/*###### Image ######*/
+Container<SDL_Texture*>& Holder::getImages()
+{
+	return this->imageList;
+}
+
+void Holder::createImage(const char* name, const char* fileName)
+{
+	this->imageList.add(name, TextureManager::loadTexture(fileName));
 }
 /*###### Holder ######*/
 
