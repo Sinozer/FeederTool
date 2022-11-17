@@ -18,7 +18,7 @@ TextManager::~TextManager()
 	TTF_Quit();
 }
 
-SDL_Texture* TextManager::loadText(const char* text,
+SDL_Texture* TextManager::loadText(string text,
 	bool isTitle, const char* color)
 {
 	TTF_Font* usedFont = this->buttonFont;
@@ -27,7 +27,7 @@ SDL_Texture* TextManager::loadText(const char* text,
 	if (color == "white") usedColor = this->white;
 
 	SDL_Surface* surface =
-		TTF_RenderText_Blended(usedFont, text, usedColor);
+		TTF_RenderText_Blended(usedFont, text.c_str(), usedColor);
 	SDL_Texture* texture =
 		SDL_CreateTextureFromSurface(this->renderer, surface);
 	

@@ -41,14 +41,16 @@ int main(int argc, char* args[])
 			mainHolder.getHolders().getElement("3").getX() + 2,
 			mainHolder.getHolders().getElement("3").getY() + 2,
 			mainHolder.getHolders().getElement("3").getW() - 4,
-			mainHolder.getHolders().getElement("3").getH() / 10
+			mainHolder.getHolders().getElement("3").getH() / 10,
+			"mid", "mid"
 		);
 		mainHolder.getHolders().getElement("3").createInputBox(
-			"5", "OUIFI", true, true,
+			"5", false, "OUIFI", true, false,
 			mainHolder.getHolders().getElement("3").getX() + 2,
 			mainHolder.getHolders().getElement("3").getY() + 200,
 			mainHolder.getHolders().getElement("3").getW() - 4,
-			mainHolder.getHolders().getElement("3").getH() / 10
+			mainHolder.getHolders().getElement("3").getH() / 10,
+			"mid", "left"
 		);
 	}
 	{

@@ -2,6 +2,7 @@
 
 #include <SDL_ttf.h>
 #include "ContainerVector.h"
+#include <string>
 
 class TextManager {
 protected:
@@ -18,7 +19,7 @@ public:
 	TextManager(SDL_Renderer* renderer, const char* fontPath);
 	~TextManager();
 
-	SDL_Texture* loadText(const char* text,
+	SDL_Texture* loadText(string text,
 		bool fontType = false,
 		const char* color = "black");
 };

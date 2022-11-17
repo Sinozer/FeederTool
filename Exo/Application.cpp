@@ -32,6 +32,11 @@ bool Application::isRunning()
 	return this->running;
 }
 
+const char* letters[30] = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
+"O", "P", "Q", "R", "S", "T", "U", "V", "V", "W", "X", "Y", "Z"};
+
+const char* numbers[11] = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+
 void Application::handleEvents()
 {
 	SDL_Event event;
@@ -51,6 +56,22 @@ void Application::handleEvents()
 		case SDL_MOUSEBUTTONUP:
 			if (event.button.button == SDL_BUTTON_LEFT) this->lClick = false;
 			break;
+		case SDL_TEXTINPUT:
+		{
+			char c = event.text.text[0];
+
+			if (c > 0 && isdigit(c))
+			{
+				this->numbers = this->numbers + c;
+				this->both = this->both + c;
+			}
+			else if (c > 0)
+			{
+				this->letters = this->letters + c;
+				this->both = this->both + c;
+			}
+			break;
+		}
 		default:
 			break;
 		}

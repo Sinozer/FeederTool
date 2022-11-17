@@ -24,7 +24,7 @@ void Button::handleEvents()
 }
 
 void Button::update()
-{	
+{
 	if (!this->active) return;
 	if (this->hover && this->click)
 	{
@@ -40,8 +40,13 @@ void Button::render()
 	SDL_SetRenderDrawColor(ApplicationManager::application.getWindow()->renderer, this->colorR, this->colorG, this->colorB, this->colorA);
 	SDL_RenderFillRect(ApplicationManager::application.getWindow()->renderer, &this->rect);
 
-	//SDL_SetRenderDrawColor(ApplicationManager::application.getWindow()->renderer, 0, 0, 255, 255);
-	//SDL_RenderFillRect(ApplicationManager::application.getWindow()->renderer, &this->tRect);
+	if (this->hover)
+	{
+		SDL_SetRenderDrawColor(ApplicationManager::application.getWindow()->renderer, 0, 0, 0, 24);
+		SDL_RenderFillRect(ApplicationManager::application.getWindow()->renderer, &this->rect);
+		SDL_SetRenderDrawColor(ApplicationManager::application.getWindow()->renderer, 0, 0, 255, 255);
+		SDL_RenderDrawRect(ApplicationManager::application.getWindow()->renderer, &this->rect);
+	}
 
 	SDL_RenderCopy(ApplicationManager::application.getWindow()->renderer, this->tTexture, NULL, &this->tRect);
 }

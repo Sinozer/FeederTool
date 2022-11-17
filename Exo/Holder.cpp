@@ -305,13 +305,13 @@ Container<InputBox*>& Holder::getInputBoxes()
 	return this->inputBoxList;
 }
 
-void Holder::createInputBox(const char* name,
+void Holder::createInputBox(const char* name, bool isInt,
 	const char* text, bool isActive, bool isTitle,
 	int x, int y, int w, int h,
 	const char* vAlign, const char* hAlign,
 	int colorR, int colorG, int colorB, int colorA)
 {
-	this->inputBoxList.add(name, new InputBox(text, isActive, isTitle, x, y, w, h, vAlign, hAlign, colorR, colorG, colorB, colorA));
+	this->inputBoxList.add(name, new InputBox(text, isInt, isActive, isTitle, x, y, w, h, vAlign, hAlign, colorR, colorG, colorB, colorA));
 	this->inputBoxList.getElement(name)->setParent(this);
 }
 /*###### InputBox ######*/

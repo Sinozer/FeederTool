@@ -14,14 +14,16 @@ protected:
 	bool hover = false;
 	bool clicked = false;
 
+	bool isTitle;
+
 	SDL_Rect tRect;
 	SDL_Texture* tTexture;
 
-	const char* text;
+	string text;
 	const char* vAlign;
 	const char* hAlign;
 public:
-	TextBox(const char* text, bool isActive = true, bool isTitle = false,
+	TextBox(string text, bool isActive = true, bool isTitle = false,
 		int x = 0, int y = 0,
 		int w = 0, int h = 0,
 		const char* vAlign = "mid", const char* hAlign = "mid",
@@ -30,6 +32,7 @@ public:
 		: Holder(isActive, x, y, w, h, colorR,
 			colorG, colorB, colorA) {
 		this->text = text;
+		this->isTitle = isTitle;
 		this->vAlign = vAlign;
 		this->hAlign = hAlign;
 		this->tTexture = ApplicationManager::application.getWindow()->text->loadText(this->text, isTitle);
@@ -42,7 +45,7 @@ public:
 	void setW(int w);
 	void setH(int h);
 
-	void updateTRect();
+	virtual void updateTRect();
 
 	void handleEvents() override;
 	void update() override;

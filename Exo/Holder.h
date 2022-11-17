@@ -113,7 +113,7 @@ public:
 
 	/*###### InputBox ######*/
 	Container<InputBox*>& getInputBoxes();
-	void createInputBox(const char* name,
+	void createInputBox(const char* name, bool isInt,
 		const char* text, bool isActive = true, bool isTitle = false,
 		int x = 0, int y = 0, int w = 0, int h = 0,
 		const char* vAlign = "mid", const char* hAlign = "mid",

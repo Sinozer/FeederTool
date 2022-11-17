@@ -29,6 +29,10 @@ public:
 	int mouseX, mouseY; // TODO GET SET
 	bool lClick; // TODO GET SET
 
+	string both = "";
+	string letters = "";
+	string numbers = "";
+
 	Application();											// Create application
 	~Application();
 
