@@ -20,6 +20,13 @@
                               "quantity": 50,
                               "timeCreated": 1,
                               "timeTaken": 1
+                    },
+                    "4": {
+                              "isEated": false,
+                              "isVomited": true,
+                              "quantity": 150,
+                              "timeCreated": 2,
+                              "timeTaken": 50
                     }
           },
           "stock": {

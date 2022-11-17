@@ -6,6 +6,7 @@
 #include "DataManager.h"
 
 
+
 SDL_Texture* testTexture;
 
 Application::Application()
@@ -84,7 +85,8 @@ void Application::update()
 	/*###### Holders ######*/
 
 	//DataManager::newDay();
-	DataManager::modifyFeeder("4", 1, 1, 50, false, false);
+	//DataManager::addFeeder(4, 2, 50, 150, false, true);
+	//DataManager::removeFeeder(2);
 	//DataManager::addProduct("petit pois", 50, 2);
 	//DataManager::getCategory();
 	//cout << "All: " << DataManager::getAll() << endl;

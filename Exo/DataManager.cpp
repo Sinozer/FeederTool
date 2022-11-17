@@ -61,12 +61,13 @@ void DataManager::newDay()
 }
 
 
-void DataManager::addFeeder(const char* number, int timeC, int timeT, int quantity, bool eat, bool vomited)
+void DataManager::addFeeder(int number, int timeC, int timeT, int quantity, bool eat, bool vomited)
 {
+	string charNumb = to_string(number);
 	json feeders = DataManager::getFeeders();
-	if (feeders.size() == 0 || feeders[number] == NULL)
+	if (feeders.size() == 0 || feeders[charNumb].size() == 0)
 	{
-		feeders[number] = DataManager::templateFeeder(timeC, timeT, quantity, eat, vomited);
+		feeders[charNumb] = DataManager::templateFeeder(timeC, timeT, quantity, eat, vomited);
 
 		json all = DataManager::getAll();
 		all["feeders"] = feeders;
@@ -89,11 +90,12 @@ void DataManager::addProduct(const char* name, int time, int quantity)
 	o << setw(10) << all << endl;
 }
 
-void DataManager::modifyFeeder(const char* number, int timeC, int timeT, int quantity, bool eat, bool vomited)
+void DataManager::modifyFeeder(int number, int timeC, int timeT, int quantity, bool eat, bool vomited)
 {
+	string charNumb = to_string(number);
 	json feeders = DataManager::getFeeders();
-	if (feeders[number].size() == 0 )return;
-	feeders[number] = DataManager::templateFeeder(timeC, timeT, quantity, eat, vomited);
+	if (feeders[charNumb].size() == 0 )return;
+	feeders[charNumb] = DataManager::templateFeeder(timeC, timeT, quantity, eat, vomited);
 
 	json all = DataManager::getAll();
 	all["feeders"] = feeders;
@@ -110,6 +112,31 @@ void DataManager::modifyProduct(const char* name, int time, int quantity)
 	json all = DataManager::getAll();
 	all["stock"] = products;
 
+	ofstream o("data.json");
+	o << setw(10) << all << endl;
+}
+
+void DataManager::removeFeeder(int number)
+{
+	string charNumb = to_string(number);
+	json feeders = DataManager::getFeeders();
+	if (feeders[charNumb].size() == 0)return;
+	feeders[charNumb] = {};
+
+	json all = DataManager::getAll();
+	all["feeders"].merge_patch(feeders);
+	ofstream o("data.json");
+	o << setw(10) << all << endl;
+}
+
+void DataManager::removeProduct(const char* name)
+{
+	json products = DataManager::getProducts();
+	if (products[name].size() == 0)return;
+	products[name] = {};
+
+	json all = DataManager::getAll();
+	all["stock"].merge_patch(products);
 	ofstream o("data.json");
 	o << setw(10) << all << endl;
 }
