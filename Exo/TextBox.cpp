@@ -25,8 +25,6 @@ void TextBox::updateTRect()
 		this->tRect.x = this->rect.x + this->rect.w - this->tRect.w;
 	else // MID
 		this->tRect.x = (this->rect.x + this->rect.w / 2) - this->tRect.w / 2;
-	cout << "rect.x: " << this->rect.x << endl;
-	cout << "tRect.x: " << this->tRect.x << endl;
 }
 
 void TextBox::setX(int x)

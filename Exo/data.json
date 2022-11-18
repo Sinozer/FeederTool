@@ -1,32 +1,25 @@
 {
           "feeders": {
+                    "0": {
+                              "isEated": false,
+                              "isVomited": false,
+                              "quantity": 10,
+                              "timeCreated": 1,
+                              "timeTaken": 1
+                    },
                     "1": {
                               "isEated": false,
                               "isVomited": false,
-                              "quantity": 50,
-                              "timeCreated": 1,
-                              "timeTaken": 1
+                              "quantity": 20,
+                              "timeCreated": 2,
+                              "timeTaken": 2
                     },
                     "2": {
                               "isEated": false,
                               "isVomited": false,
-                              "quantity": 50,
-                              "timeCreated": 1,
-                              "timeTaken": 1
-                    },
-                    "3": {
-                              "isEated": false,
-                              "isVomited": false,
-                              "quantity": 50,
-                              "timeCreated": 1,
-                              "timeTaken": 1
-                    },
-                    "4": {
-                              "isEated": false,
-                              "isVomited": true,
-                              "quantity": 150,
-                              "timeCreated": 2,
-                              "timeTaken": 50
+                              "quantity": 30,
+                              "timeCreated": 3,
+                              "timeTaken": 3
                     }
           },
           "stock": {

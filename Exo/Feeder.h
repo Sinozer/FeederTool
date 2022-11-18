@@ -16,7 +16,8 @@ protected:
 public:
 	Feeder();
 	Feeder(time_t timeToTake, int quantity = 0,
-		bool eated = false, bool vomited = false);	// Create a feeder base on default values which require changes
+		bool eated = false, bool vomited = false,
+		time_t timeCreated = time(0));
 	~Feeder();
 
 	void setTimeTaken(time_t timeTaken); //register when the feeder is eat by the baby

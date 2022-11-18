@@ -1,7 +1,15 @@
 ﻿#include "Utils.h"
 
 #include "ApplicationManager.h"
-#include "Biberon.h"
+#include "DataManager.h"
+
+//#include "Biberon.h"
+
+#include "View.h"
+#include "Holder.h"
+#include "TextBox.h"
+#include "Button.h"
+#include "InputBox.h"
 #include <SDL_mixer.h>
 
 const int FPSLimit = 66; // 66 = ~15fps | 33 + ~30fps | 16 = ~60fps
@@ -31,7 +39,7 @@ int main(int argc, char* args[])
 		Holder& feederImageC = mainHolder.getHolders().getElement("FEEDER_IMAGE");
 
 		feederImageC.createImage(
-		"FEEDER_IMAGE", "Feeder.png"
+			"FEEDER_IMAGE", "Feeder.png"
 		);
 
 		mainHolder.createButton(
@@ -73,6 +81,89 @@ int main(int argc, char* args[])
 			"mid", "mid", 255, 255, 255, 127
 		);
 
+		mainHolder.createTextBox(
+			"TITLE", "Biberons",
+			true, true,
+			(mainHolder.getX() + mainHolder.getW()) / 4, (mainHolder.getX() + mainHolder.getW()) / 20,
+			mainHolder.getW() / 2, mainHolder.getH() / 10,
+			"mid", "mid", 255, 255, 255, 63
+		);
+
+		mainView->createHolder(
+			"TEMPLATE_FEEDER_HOLDER", true,
+			mainHolder.getX() + 5, mainHolder.getY() + mainHolder.getH() / 6,
+			mainHolder.getW() - 10, mainHolder.getH() / 1.6,
+			0, 0, 0, 0
+		);
+		Holder& feederHolder = mainView->getHolders().getElement("TEMPLATE_FEEDER_HOLDER");
+
+		/*for (auto i = 0; i < ApplicationManager::application.getFeeders().getLen(); i++)
+		{
+			bool isActive = false;
+			if (i == 0) isActive = true;
+
+			cout << typeid(to_string(i).c_str()).name() << endl;
+			cout << to_string(i).c_str() << endl;
+
+			const char* name = (to_string(i)).c_str();
+
+			mainView->createHolder(
+				name, isActive,
+				feederHolder.getX(), feederHolder.getY() + (feederHolder.getH() + 10) * i,
+				feederHolder.getW(), feederHolder.getH(),
+				0, 0, 0, 127
+			);
+			Holder& feederHolder_ = mainView->getHolders().getElement(name);
+
+			feederHolder_.createTextBox(
+				"TITLE", to_string(i + 1).c_str(),
+				true, true,
+				feederHolder_.getX() + 2, feederHolder_.getY() + 2,
+				feederHolder_.getW() / 10 - 4, feederHolder_.getH() - 4,
+				"mid", "mid", 255, 255, 255, 63
+			);
+			TextBox* feederTitle = feederHolder_.getTextBoxs().getElement("TITLE");
+
+			feederHolder_.createHolder(
+				"FEEDER_CONTENT_HOLDER", true,
+				feederTitle->getX() + feederTitle->getW() + 4, feederTitle->getY(),
+				feederTitle->getX() + feederHolder.getW() - (feederTitle->getX() + feederTitle->getW() + 8), feederHolder.getH() - 4,
+				255, 0, 0, 127
+			);
+			Holder& feederContentHolder = feederHolder_.getHolders().getElement("FEEDER_CONTENT_HOLDER");
+
+			feederContentHolder.createButton(
+				"G_", "<-",
+				[i]() {
+					int i_ = i;
+					if (i_ <= 0) i_ = ApplicationManager::application.getFeeders().getLen() - 1;
+					const char* temp_ = (to_string(i_)).c_str();
+					ApplicationManager::application.getWindow()->getCurrentView()->getHolders().getElement("MAIN_HOLDER").getHolders().getElement(temp_).setActive(true);
+					ApplicationManager::application.getWindow()->getCurrentView()->getHolders().getElement("MAIN_HOLDER").getHolders().getElement(temp_).setActive(false);
+				},
+				true, true,
+					feederContentHolder.getX(), feederContentHolder.getY(),
+					feederContentHolder.getW() / 10, feederContentHolder.getH(),
+					"mid", "mid", 255, 255, 255, 127
+					);
+
+			feederContentHolder.createButton(
+				"D_", "->",
+				[i]() {
+					int i_ = i;
+					if (i_ >= ApplicationManager::application.getFeeders().getLen() - 1) i_ = 0;
+					const char* temp_ = (to_string(i_)).c_str();
+					ApplicationManager::application.getWindow()->getCurrentView()->getHolders().getElement("MAIN_HOLDER").getHolders().getElement(temp_).setActive(true);
+					ApplicationManager::application.getWindow()->getCurrentView()->getHolders().getElement("MAIN_HOLDER").getHolders().getElement(temp_).setActive(false);
+				},
+				true, true,
+					feederContentHolder.getX() + feederContentHolder.getW() - feederContentHolder.getW() / 10, feederContentHolder.getY(),
+					feederContentHolder.getW() / 10, feederContentHolder.getH(),
+					"mid", "mid", 255, 255, 255, 127
+					);
+			ApplicationManager::application.getFeeders().getElement(i)
+		};*/
+
 		mainHolder.createButton(
 			"ADD_BUTTON", "Ajouter un biberon",
 			[]() { ApplicationManager::application.getWindow()->setCurrentView(ApplicationManager::application.getWindow()->getViews().getElement("ADD_FEEDER_VIEW")); },
@@ -111,34 +202,50 @@ int main(int argc, char* args[])
 			"mid", "mid", 255, 255, 255, 63
 		);
 
-		/*mainHolder.createTextBox(
-			"QUANTITY", to_string(time(0)),
-			true, true,
-			(mainHolder.getX() + mainHolder.getW()) / 4, (mainHolder.getX() + mainHolder.getW()) / 20,
-			mainHolder.getW() / 2, mainHolder.getH() / 10,
+		mainHolder.createTextBox(
+			"QUANTITY", "Quantité",
+			true, false,
+			(mainHolder.getX() + mainHolder.getW()) / 4, (mainHolder.getX() + mainHolder.getW()) / 2,
+			mainHolder.getW() / 2, mainHolder.getH() / 16,
 			"mid", "mid", 255, 255, 255, 63
-		);*/
+		);
+		TextBox* quantityTB = mainHolder.getTextBoxs().getElement("QUANTITY");
 
 		mainHolder.createInputBox(
-			"QUANTITY", true, "Quantité", true, false,
-			(mainHolder.getX() + mainHolder.getW()) / 4, (mainHolder.getX() + mainHolder.getW()) / 1.6,
+			"QUANTITY", true, "250", true, false,
+			quantityTB->getX(), quantityTB->getY() + quantityTB->getH(),
 			mainHolder.getW() / 2, mainHolder.getH() / 14
 		);
+		InputBox* quantityIB = mainHolder.getInputBoxes().getElement("QUANTITY");
+
+		mainHolder.createTextBox(
+			"HOUR", "Timestamp voulu :d",
+			true, false,
+			(mainHolder.getX() + mainHolder.getW()) / 4, (mainHolder.getX() + mainHolder.getW()) / 1.5,
+			mainHolder.getW() / 2, mainHolder.getH() / 16,
+			"mid", "mid", 255, 255, 255, 63
+		);
+		TextBox* hourTB = mainHolder.getTextBoxs().getElement("HOUR");
 
 		mainHolder.createInputBox(
-			"HOUR", true, "Timestamp :d", true, false,
-			(mainHolder.getX() + mainHolder.getW()) / 4, (mainHolder.getX() + mainHolder.getW()) / 1.4,
+			"HOUR", true, to_string(time(0)).c_str(), true, false,
+			hourTB->getX(), hourTB->getY() + hourTB->getH(),
 			mainHolder.getW() / 2, mainHolder.getH() / 14
 		);
+		InputBox* hourIB = mainHolder.getInputBoxes().getElement("HOUR");
 
 		mainHolder.createButton(
 			"ADD_BUTTON", "Ajouter un biberon",
-			[]() {  },
+			[]() { ApplicationManager::application.createFeeder(
+				stoi(ApplicationManager::application.getWindow()->getCurrentView()->getHolders().getElement("MAIN_HOLDER").getInputBoxes().getElement("HOUR")->text),
+				stoi(ApplicationManager::application.getWindow()->getCurrentView()->getHolders().getElement("MAIN_HOLDER").getInputBoxes().getElement("QUANTITY")->text));
+		ApplicationManager::application.getWindow()->setCurrentView(ApplicationManager::application.getWindow()->getViews().getElement("FEEDER_VIEW"));
+			},
 			true, false,
-			(mainHolder.getX() + mainHolder.getW()) / 4, (mainHolder.getY() + mainHolder.getH()) / 1.2,
-			mainHolder.getW() / 2, mainHolder.getH() / 10,
-			"mid", "mid", 255, 255, 255, 127
-		);
+				(mainHolder.getX() + mainHolder.getW()) / 4, (mainHolder.getY() + mainHolder.getH()) / 1.2,
+				mainHolder.getW() / 2, mainHolder.getH() / 10,
+				"mid", "mid", 255, 255, 255, 127
+				);
 	}
 	{ // STOCK_VIEW
 		window->createView("STOCK_VIEW", false);

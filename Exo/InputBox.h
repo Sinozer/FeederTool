@@ -24,8 +24,8 @@ protected:
 	SDL_Rect tRect;
 	SDL_Texture* tTexture;
 
-	string text;
 public:
+	string text;
 	InputBox(string text, bool isInt = false, bool isActive = true, bool isTitle = false, int x = 0, int y = 0,
 		int w = 0, int h = 0,
 		const char* vAlign = "mid", const char* hAlign = "mid",

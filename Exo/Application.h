@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Container.h"
+#include "ContainerVector.h"
 
 #include "MainSDLWindow.h"
 #include "Feeder.h"
@@ -18,7 +18,7 @@ protected:
 	/*###### MainSDLWindow ######*/
 
 	/*###### Feeder ######*/
-	Container<Feeder> feederList;		// List of all differents feeders
+	ContainerVector<Feeder> feederList;		// List of all differents feeders
 	/*###### Feeder ######*/
 
 
@@ -49,9 +49,10 @@ public:
 	/*###### MainSDLWindow ######*/
 
 	/*###### Feeder ######*/
-	Container<Feeder>& getFeeders(); // return the list of Feeders
-	void createFeeder(const char* name,
-		time_t timeToTake, int quantity = 0,
-		bool eated = false, bool vomited = false);
+	ContainerVector<Feeder>& getFeeders(); // return the list of Feeders
+	void createFeeder(time_t timeToTake, int quantity = 0,
+		bool eated = false, bool vomited = false,
+		time_t timeCreated = time(0), bool isLoad = false);
+	void loadFeeders();
 	/*###### Feeder ######*/
 };

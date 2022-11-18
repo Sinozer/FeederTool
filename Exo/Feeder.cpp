@@ -2,7 +2,7 @@
 
 Feeder::Feeder()
 {
-	timeCreated = time(0);
+	this->timeCreated = time(0);
 
 	this->timeTaken = NULL;
 	this->quantity = NULL;
@@ -10,9 +10,9 @@ Feeder::Feeder()
 	this->vomited = NULL;
 }
 
-Feeder::Feeder(time_t timeToTake, int quantity, bool eated, bool vomited)
+Feeder::Feeder(time_t timeToTake, int quantity, bool eated, bool vomited, time_t timeCreated)
 {
-	timeCreated = time(0);
+	this->timeCreated = timeCreated;
 
 	this->timeTaken = timeToTake;
 	this->quantity = quantity;

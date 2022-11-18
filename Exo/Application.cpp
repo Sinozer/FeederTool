@@ -18,7 +18,10 @@ Application::Application()
 
 	this->mouseX = 0;
 	this->mouseY = 0;
-	this->lClick = false;
+	this->backSpace = false;
+	this->lClick = false; this->bReturn = false;
+
+	this->loadFeeders();
 }
 
 Application::~Application()
@@ -172,15 +175,29 @@ MainSDLWindow* Application::getWindow()
 /*###### MainSDLWindow ######*/
 
 /*###### Feeder ######*/
-Container<Feeder>& Application::getFeeders()
+ContainerVector<Feeder>& Application::getFeeders()
 {
+	/*for (auto i = 0; i < DataManager::getFeeders().size(); i++)
+	{
+		cout << DataManager::getFeeders()[i] << endl;
+	}*/
+	//this->feederList = DataManager::getFeeders();
 	return this->feederList;
 }
 
-void Application::createFeeder(const char* name,
-	time_t timeToTake, int quantity,
-	bool eated, bool vomited)
+void Application::createFeeder(time_t timeToTake, int quantity,
+	bool eated, bool vomited, time_t timeCreated, bool isLoad)
 {
-	this->feederList.add(name, Feeder::Feeder(timeToTake, quantity, eated, vomited));
+	this->feederList.add(Feeder::Feeder(timeToTake, quantity, eated, vomited));
+	if (!isLoad)
+		DataManager::addFeeder(this->feederList.getLen(), timeCreated, timeToTake, quantity, eated, vomited);
+}
+
+void Application::loadFeeders()
+{
+	for (json feeder : DataManager::getFeeders())
+	{
+		this->createFeeder(feeder["timeTaken"], feeder["quantity"], feeder["isEated"], feeder["isVomited"], feeder["timeCreated"], true);
+	}
 }
 /*###### Feeder ######*/
