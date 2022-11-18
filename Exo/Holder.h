@@ -103,7 +103,7 @@ public:
 	/*###### TextBox ######*/
 	Container<TextBox*>& getTextBoxs(); //return list of TextBox
 	void createTextBox(const char* name,
-		const char* text, bool isActive = true, bool isTitle = false,
+		const char* text, const char* tColor, bool isActive = true, bool isTitle = false,
 		int x = 0, int y = 0, int w = 0, int h = 0,
 		const char* vAlign = "mid", const char* hAlign = "mid",
 		int colorR = 255, int colorG = 255,

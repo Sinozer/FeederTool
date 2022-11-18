@@ -31,7 +31,7 @@ public:
 		const char* vAlign = "mid", const char* hAlign = "mid",
 		int colorR = 255, int colorG = 255,
 		int colorB = 255, int colorA = 255)
-		: TextBox(text, isActive, isTitle, x, y, w, h, vAlign, hAlign,
+		: TextBox(text, "black", isActive, isTitle, x, y, w, h, vAlign, hAlign,
 			colorR, colorG, colorB, colorA) {
 		this->isInt = isInt;
 		this->vAlign = vAlign;

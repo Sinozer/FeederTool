@@ -30,6 +30,14 @@ int main(int argc, char* args[])
 		);
 		Holder& mainHolder = mainView->getHolders().getElement("MAIN_HOLDER");
 
+		mainHolder.createTextBox(
+			"TITLE", "~Baby()", "white",
+			true, true,
+			(mainHolder.getX() + mainHolder.getW()) / 4, (mainHolder.getX() + mainHolder.getW()) / 30,
+			mainHolder.getW() / 2, mainHolder.getH() / 10,
+			"mid", "mid", 255, 255, 255, 0
+		);
+
 		mainHolder.createHolder(
 			"FEEDER_IMAGE", true,
 			(mainHolder.getX() + mainHolder.getW()) / 2.7, (mainHolder.getY() + mainHolder.getH()) / 8,
@@ -82,7 +90,7 @@ int main(int argc, char* args[])
 		);
 
 		mainHolder.createTextBox(
-			"TITLE", "Biberons",
+			"TITLE", "Biberons", "black",
 			true, true,
 			(mainHolder.getX() + mainHolder.getW()) / 4, (mainHolder.getX() + mainHolder.getW()) / 20,
 			mainHolder.getW() / 2, mainHolder.getH() / 10,
@@ -111,7 +119,7 @@ int main(int argc, char* args[])
 			Holder& feederHolder_ = mainView->getHolders().getElement("FEEDER_HOLDER_" + i);
 
 			feederHolder_.createTextBox(
-				"TITLE", to_string(i + 1).c_str(),
+				"TITLE", to_string(i + 1).c_str(), "black",
 				true, true,
 				feederHolder_.getX() + 2, feederHolder_.getY() + 2,
 				feederHolder_.getW() / 10 - 4, feederHolder_.getH() - 4,
@@ -119,7 +127,7 @@ int main(int argc, char* args[])
 			);
 
 			/*feederHolder_.createTextBox(
-				"QUANTITY", "Quantité",
+				"QUANTITY", "Quantité", "black",
 				true, false,
 				feederHolder_.getX() + feederHolder_.getW() / 4 + 2, feederHolder_.getY() + feederHolder_.getH() / 10 + 2,
 				feederHolder_.getW() / 2, feederHolder_.getH() / 16,
@@ -149,7 +157,7 @@ int main(int argc, char* args[])
 			Holder& feederHolder_ = mainView->getHolders().getElement(to_string(i).c_str());
 
 			feederHolder_.createTextBox(
-				"TITLE", to_string(i + 1).c_str(),
+				"TITLE", to_string(i + 1).c_str(), "black",
 				true, true,
 				feederHolder_.getX() + 2, feederHolder_.getY() + 2,
 				feederHolder_.getW() / 10 - 4, feederHolder_.getH() - 4,
@@ -227,7 +235,7 @@ int main(int argc, char* args[])
 		);
 
 		mainHolder.createTextBox(
-			"TITLE", "+ Biberon",
+			"TITLE", "+ Biberon", "black",
 			true, true,
 			(mainHolder.getX() + mainHolder.getW()) / 4, (mainHolder.getX() + mainHolder.getW()) / 20,
 			mainHolder.getW() / 2, mainHolder.getH() / 10,
@@ -235,7 +243,7 @@ int main(int argc, char* args[])
 		);
 
 		mainHolder.createTextBox(
-			"QUANTITY", "Quantité",
+			"QUANTITY", "Quantité", "black",
 			true, false,
 			(mainHolder.getX() + mainHolder.getW()) / 4, (mainHolder.getX() + mainHolder.getW()) / 2,
 			mainHolder.getW() / 2, mainHolder.getH() / 16,
@@ -251,7 +259,7 @@ int main(int argc, char* args[])
 		InputBox* quantityIB = mainHolder.getInputBoxes().getElement("QUANTITY");
 
 		mainHolder.createTextBox(
-			"HOUR", "Timestamp voulu :d",
+			"HOUR", "Timestamp voulu :d", "black",
 			true, false,
 			(mainHolder.getX() + mainHolder.getW()) / 4, (mainHolder.getX() + mainHolder.getW()) / 1.5,
 			mainHolder.getW() / 2, mainHolder.getH() / 16,

@@ -295,12 +295,12 @@ Container<TextBox*>& Holder::getTextBoxs()
 }
 
 void Holder::createTextBox(const char* name,
-	const char* text, bool isActive, bool isTitle,
+	const char* text, const char* tColor, bool isActive, bool isTitle,
 	int x, int y, int w, int h,
 	const char* vAlign, const char* hAlign,
 	int colorR, int colorG, int colorB, int colorA)
 {
-	this->textBoxList.add(name, new TextBox(text, isActive, isTitle, x, y, w, h, vAlign, hAlign, colorR, colorG, colorB, colorA));
+	this->textBoxList.add(name, new TextBox(text, tColor, isActive, isTitle, x, y, w, h, vAlign, hAlign, colorR, colorG, colorB, colorA));
 	this->textBoxList.getElement(name)->setParent(this);
 }
 /*###### TextBox ######*/

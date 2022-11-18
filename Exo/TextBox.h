@@ -23,7 +23,7 @@ protected:
 	const char* vAlign;
 	const char* hAlign;
 public:
-	TextBox(string text, bool isActive = true, bool isTitle = false,
+	TextBox(string text, const char* tColor = "black", bool isActive = true, bool isTitle = false,
 		int x = 0, int y = 0,
 		int w = 0, int h = 0,
 		const char* vAlign = "mid", const char* hAlign = "mid",
@@ -35,7 +35,7 @@ public:
 		this->isTitle = isTitle;
 		this->vAlign = vAlign;
 		this->hAlign = hAlign;
-		this->tTexture = ApplicationManager::application.getWindow()->text->loadText(this->text, isTitle); //create TextBox
+		this->tTexture = ApplicationManager::application.getWindow()->text->loadText(this->text, isTitle, tColor); //create TextBox
 		this->updateTRect();
 	};
 	~TextBox();
