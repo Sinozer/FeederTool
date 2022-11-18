@@ -177,11 +177,6 @@ MainSDLWindow* Application::getWindow()
 /*###### Feeder ######*/
 ContainerVector<Feeder>& Application::getFeeders()
 {
-	/*for (auto i = 0; i < DataManager::getFeeders().size(); i++)
-	{
-		cout << DataManager::getFeeders()[i] << endl;
-	}*/
-	//this->feederList = DataManager::getFeeders();
 	return this->feederList;
 }
 

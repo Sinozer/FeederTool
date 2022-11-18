@@ -97,16 +97,42 @@ int main(int argc, char* args[])
 		);
 		Holder& feederHolder = mainView->getHolders().getElement("TEMPLATE_FEEDER_HOLDER");
 
+		//bool isActive = true;
+
 		for (auto i = 0; i < ApplicationManager::application.getFeeders().getLen(); i++)
 		{
+			//if (i != 0) isActive = false;
 			mainView->createHolder(
 				"FEEDER_HOLDER_" + i, true,
 				feederHolder.getX(), feederHolder.getY() * (i + 1),
 				feederHolder.getW(), feederHolder.getH(),
 				0, 0, 0, 127
 			);
+			Holder& feederHolder_ = mainView->getHolders().getElement("FEEDER_HOLDER_" + i);
 
-			cout << (feederHolder.getY() + feederHolder.getH() + 10) * i << endl;
+			feederHolder_.createTextBox(
+				"TITLE", to_string(i + 1).c_str(),
+				true, true,
+				feederHolder_.getX() + 2, feederHolder_.getY() + 2,
+				feederHolder_.getW() / 10 - 4, feederHolder_.getH() - 4,
+				"mid", "mid", 255, 255, 255, 63
+			);
+
+			/*feederHolder_.createTextBox(
+				"QUANTITY", "Quantité",
+				true, false,
+				feederHolder_.getX() + feederHolder_.getW() / 4 + 2, feederHolder_.getY() + feederHolder_.getH() / 10 + 2,
+				feederHolder_.getW() / 2, feederHolder_.getH() / 16,
+				"mid", "mid", 255, 255, 255, 63
+			);
+			TextBox* quantityTB = feederHolder_.getTextBoxs().getElement("QUANTITY");
+
+			feederHolder_.createInputBox(
+				"QUANTITY", true, "250", true, false,
+				quantityTB->getX(), quantityTB->getY() + quantityTB->getH(),
+				feederHolder_.getW() / 2, feederHolder_.getH() / 16
+			);
+			InputBox* quantityIB = mainHolder.getInputBoxes().getElement("QUANTITY");*/
 		}
 
 		/*for (auto i = 0; i < ApplicationManager::application.getFeeders().getLen(); i++)
@@ -274,119 +300,8 @@ int main(int argc, char* args[])
 			"mid", "mid", 255, 255, 255, 127
 		);
 	}
-	/*{
-		ApplicationManager::application.getWindow()->createView("MAIN", true);
-		View* mainView = ApplicationManager::application.getWindow()->getViews().getElement("MAIN");
-		mainView->createHolder("mainHolder", true, 2, 2, ApplicationManager::applicationW / 2 - 4, ApplicationManager::applicationH / 2 - 4, 255, 255, 255, 255);
-		Holder& mainHolder = mainView->getHolders().getElement("mainHolder");
-		mainHolder.createHolder(
-			"1", true,
-			mainHolder.getX() + 5,
-			mainHolder.getY() + 5,
-			mainHolder.getW() / 3 - 10,
-			mainHolder.getH() - 10,
-			47, 50, 52, 127);
-		mainHolder.getHolders().getElement("1").createButton(
-			"2", "Feeder", []() { ApplicationManager::application.getWindow()->setCurrentView(ApplicationManager::application.getWindow()->getViews().getElement("5")); cout << "A" << endl; },
-			true, false,
-			mainHolder.getHolders().getElement("1").getX() + 2,
-			mainHolder.getHolders().getElement("1").getY() + 2,
-			mainHolder.getHolders().getElement("1").getW() - 4,
-			mainHolder.getHolders().getElement("1").getH() / 10
-		);
-		mainHolder.createHolder(
-			"3", true,
-			mainHolder.getHolders().getElement("1").getX() + mainHolder.getHolders().getElement("1").getW() + 5,
-			mainHolder.getY() + 5,
-			(mainHolder.getW() * 2) / 3 - 5,
-			mainHolder.getH() - 10,
-			47, 50, 52, 127);
-		mainHolder.getHolders().getElement("3").createImage("test", "test.png");
-		mainHolder.getHolders().getElement("3").createTextBox(
-			"4", "FIRST", true, true,
-			mainHolder.getHolders().getElement("3").getX() + 2,
-			mainHolder.getHolders().getElement("3").getY() + 2,
-			mainHolder.getHolders().getElement("3").getW() - 4,
-			mainHolder.getHolders().getElement("3").getH() / 10,
-			"mid", "mid"
-		);
-		mainHolder.getHolders().getElement("3").createInputBox(
-			"5", false, "OUIFI", true, false,
-			mainHolder.getHolders().getElement("3").getX() + 2,
-			mainHolder.getHolders().getElement("3").getY() + 200,
-			mainHolder.getHolders().getElement("3").getW() - 4,
-			mainHolder.getHolders().getElement("3").getH() / 10,
-			"mid", "left"
-		);
-		mainHolder.getHolders().getElement("3").createInputBox(
-			"6", false, "NONFI", true, false,
-			mainHolder.getHolders().getElement("3").getX() + 2,
-			mainHolder.getHolders().getElement("3").getY() + 300,
-			mainHolder.getHolders().getElement("3").getW() - 4,
-			mainHolder.getHolders().getElement("3").getH() / 10,
-			"mid", "left"
-		);
-	}*/
-	/*{
-		ApplicationManager::application.getWindow()->createView("5", false);
-		ApplicationManager::application.getWindow()->getViews().getElement("5")->createHolder("secondHolder", true, 2, 2, ApplicationManager::applicationW / 2 - 4, ApplicationManager::applicationH / 2 - 4, 255, 255, 255, 255);
-		Holder& secondHolder = ApplicationManager::application.getWindow()->getViews().getElement("5")->getHolders().getElement("secondHolder");
-		secondHolder.createHolder(
-			"6", true,
-			secondHolder.getX() + 5,
-			secondHolder.getY() + 5,
-			secondHolder.getW() / 3 - 10,
-			secondHolder.getH() - 10,
-			255, 50, 52, 127);
-		secondHolder.getHolders().getElement("6").createButton(
-			"7", "Other", []() { ApplicationManager::application.getWindow()->setCurrentView(ApplicationManager::application.getWindow()->getViews().getElement("MAIN")); cout << "B" << endl; },
-			true, false,
-			secondHolder.getHolders().getElement("6").getX() + 2,
-			secondHolder.getHolders().getElement("6").getY() + 2,
-			secondHolder.getHolders().getElement("6").getW() - 4,
-			secondHolder.getHolders().getElement("6").getH() / 10
-		);
-		secondHolder.createHolder(
-			"8", true,
-			secondHolder.getHolders().getElement("6").getX() + secondHolder.getHolders().getElement("6").getW() + 5,
-			secondHolder.getY() + 5,
-			(secondHolder.getW() * 2) / 3 - 5,
-			secondHolder.getH() - 10,
-			47, 50, 52, 127);
-		secondHolder.getHolders().getElement("8").createTextBox(
-			"9", "CHANGE PAGE", true, true,
-			secondHolder.getHolders().getElement("8").getX() + 2,
-			secondHolder.getHolders().getElement("8").getY() + 2,
-			secondHolder.getHolders().getElement("8").getW() - 4,
-			secondHolder.getHolders().getElement("8").getH() / 10
-		);
-	}*/
 
-	/*ApplicationManager::application.stock.createProduct("test", 12);
-	cout << ApplicationManager::application.stock.getProducts().getElement("test")->getName() << endl;
-	ApplicationManager::application.stock.modifyProduct("test", "otherTest", 12);
-	cout << ApplicationManager::application.stock.getProducts().getElement("otherTest")->getName() << endl;*/
-
-	/*if (SDL_Init(SDL_INIT_VIDEO) < 0)return -1;
-
-	if (Mix_OpenAudio(96000, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) < 0)
-	{
-		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Erreur initialisation SDL_mixer : %s", Mix_GetError());
-		SDL_Quit();
-		return -1;
-	}
-
-	Mix_Music* music = Mix_LoadMUS("secret.mp3");
-
-	if (music == nullptr)
-	{
-		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Erreur chargement de la musique : %s", Mix_GetError());
-		Mix_CloseAudio();
-		SDL_Quit();
-		return -1;
-	}*/
-
-	//Mix_PlayMusic(ApplicationManager::application.getWindow()->EEG, -1);
+	//Mix_PlayMusic(ApplicationManager::application.getWindow()->EEG, 1);
 
 	while (ApplicationManager::application.isRunning())
 	{

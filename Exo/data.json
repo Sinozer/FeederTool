@@ -13,13 +13,6 @@
                               "quantity": 20,
                               "timeCreated": 2,
                               "timeTaken": 2
-                    },
-                    "2": {
-                              "isEated": false,
-                              "isVomited": false,
-                              "quantity": 30,
-                              "timeCreated": 3,
-                              "timeTaken": 3
                     }
           },
           "stock": {
