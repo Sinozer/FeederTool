@@ -19,17 +19,17 @@ public:
 		bool eated = false, bool vomited = false);	// Create a feeder base on default values which require changes
 	~Feeder();
 
-	void setTimeTaken(time_t timeTaken);
-	time_t getTimeTaken();
+	void setTimeTaken(time_t timeTaken); //register when the feeder is eat by the baby
+	time_t getTimeTaken(); //return the time when the feeder is eat
 
 	void setQuantity(int quantity);
 	int getQuantity();
 
 	void setEated(bool eated);
-	bool isEated();
+	bool isEated(); // return true or false is the feeder is eated
 
 	void setVomited(bool vomited);
-	bool isVomited();
+	bool isVomited();	// return true or false is the feeder is vomited
 
 	void debug();
 };

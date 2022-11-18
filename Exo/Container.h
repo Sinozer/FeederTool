@@ -5,7 +5,7 @@ using namespace std;
 
 #include "Utils.h"
 
-template <typename T>
+template <typename T> // facilitates the management of unordered_map
 class Container
 {
 protected:

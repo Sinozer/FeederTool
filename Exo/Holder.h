@@ -47,17 +47,17 @@ protected:
 public:
 	Holder(bool isActive = true, int x = 0, int y = 0,
 		int w = 0, int h = 0,
-		int colorR = 255, int colorG = 255,
+		int colorR = 255, int colorG = 255,					// Create holder
 		int colorB = 255, int colorA = 255);
 	~Holder();
 
 	bool isActive();
-	void setActive(bool isActive);
+	void setActive(bool isActive); //modify if the holder is active or not
+	
+	SDL_Rect& getRect(); //return an rectangle of SDL window
 
-	SDL_Rect& getRect();
-
-	Holder getParent();
-	void setParent(Holder* parent);
+	Holder getParent(); //return the parent of the holder
+	void setParent(Holder* parent); //modify the parent of the holder
 
 	int getX();
 	void setX(int x);
@@ -83,12 +83,12 @@ public:
 	int getColorA();
 	void setColorA(int colorA);
 
-	virtual void handleEvents();
-	virtual void update();
-	virtual void render();
+	virtual void handleEvents(); //trigger on SDL event
+	virtual void update(); //updated place Holder
+	virtual void render(); //print SDL window
 
 	/*###### Holder ######*/
-	Container<Holder>& getHolders();
+	Container<Holder>& getHolders(); //return list of holder
 	void createHolder(const char* name, bool isActive,
 		int x = 0, int y = 0, int w = 0, int h = 0,
 		int colorR = 255, int colorG = 255,
@@ -96,12 +96,12 @@ public:
 	/*###### Holder ######*/
 
 	/*###### Image ######*/
-	Container<SDL_Texture*>& getImages();
+	Container<SDL_Texture*>& getImages(); //return list of Images
 	void createImage(const char* name, const char* fileName);
 	/*###### Image ######*/
 
 	/*###### TextBox ######*/
-	Container<TextBox*>& getTextBoxs();
+	Container<TextBox*>& getTextBoxs(); //return list of TextBox
 	void createTextBox(const char* name,
 		const char* text, bool isActive = true, bool isTitle = false,
 		int x = 0, int y = 0, int w = 0, int h = 0,
@@ -111,7 +111,7 @@ public:
 	/*###### TextBox ######*/
 
 	/*###### Button ######*/
-	Container<Button*>& getButtons();
+	Container<Button*>& getButtons(); //return list of Button
 	void createButton(const char* name,
 		const char* text, function<void()> onClick, bool isActive = true, bool isTitle = false,
 		int x = 0, int y = 0, int w = 0, int h = 0,
@@ -121,7 +121,7 @@ public:
 	/*###### Button ######*/
 
 	/*###### InputBox ######*/
-	Container<InputBox*>& getInputBoxes();
+	Container<InputBox*>& getInputBoxes(); //return list of InputBox
 	void createInputBox(const char* name, bool isInt,
 		const char* text, bool isActive = true, bool isTitle = false,
 		int x = 0, int y = 0, int w = 0, int h = 0,

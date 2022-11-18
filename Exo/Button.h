@@ -31,8 +31,8 @@ public:
 			colorR, colorG, colorB, colorA) {
 		this->text = text;
 		this->onClick = onClick;
-		this->tTexture = ApplicationManager::application.getWindow()->text->loadText(this->text);
-		SDL_QueryTexture(this->tTexture, NULL, NULL, &this->tRect.w, &this->tRect.h);
+		this->tTexture = ApplicationManager::application.getWindow()->text->loadText(this->text);	//create Button
+		SDL_QueryTexture(this->tTexture, NULL, NULL, &this->tRect.w, &this->tRect.h); //Query the attributes of a texture
 		this->tRect.x = (this->rect.x + this->rect.w / 2) - this->tRect.w / 2;
 		this->tRect.y = (this->rect.y + this->rect.h / 2) - this->tRect.h / 2;
 	};

@@ -3,7 +3,7 @@
 #include <vector>
 using namespace std;
 
-template <typename T>
+template <typename T> // facilitates the management of vector
 class ContainerVector
 {
 protected:

@@ -13,7 +13,7 @@ public:
 	~View();
 
 	/*###### Holder ######*/
-	Container<Holder>& getHolders();
+	Container<Holder>& getHolders(); //return list of different place holder
 	void createHolder(const char* name, bool isActive,
 		int x = 0, int y = 0, int w = 0, int h = 0,
 		int colorR = 255, int colorG = 255,

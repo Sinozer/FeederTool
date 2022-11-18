@@ -132,7 +132,6 @@ void Application::update()
 	//DataManager::addFeeder(4, 2, 50, 150, false, true);
 	//DataManager::removeFeeder(2);
 	//DataManager::addProduct("petit pois", 50, 2);
-	//DataManager::getCategory();
 	//cout << "All: " << DataManager::getAll() << endl;
 }
 

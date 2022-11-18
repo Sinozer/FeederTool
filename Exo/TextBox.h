@@ -35,17 +35,17 @@ public:
 		this->isTitle = isTitle;
 		this->vAlign = vAlign;
 		this->hAlign = hAlign;
-		this->tTexture = ApplicationManager::application.getWindow()->text->loadText(this->text, isTitle);
+		this->tTexture = ApplicationManager::application.getWindow()->text->loadText(this->text, isTitle); //create TextBox
 		this->updateTRect();
 	};
 	~TextBox();
 
-	void setX(int x);
-	void setY(int y);
-	void setW(int w);
-	void setH(int h);
+	void setX(int x); //define x in SDL window
+	void setY(int y);//define y in SDL window
+	void setW(int w);//define w in SDL window
+	void setH(int h);//define h in SDL window
 
-	virtual void updateTRect();
+	virtual void updateTRect(); //update a rectangle use for print the text
 
 	void handleEvents() override;
 	void update() override;

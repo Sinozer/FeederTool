@@ -16,10 +16,10 @@ protected:
 	SDL_Color white = { 255, 255, 255 };
 	SDL_Color black = { 0, 0, 0 };
 public:
-	TextManager(SDL_Renderer* renderer, const char* fontPath);
+	TextManager(SDL_Renderer* renderer, const char* fontPath); //create TextManager
 	~TextManager();
 
 	SDL_Texture* loadText(string text,
 		bool fontType = false,
-		const char* color = "black");
+		const char* color = "black"); //allow 
 };

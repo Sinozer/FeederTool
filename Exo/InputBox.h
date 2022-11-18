@@ -37,7 +37,7 @@ public:
 		this->vAlign = vAlign;
 		this->hAlign = hAlign;
 		this->text = text;
-		this->tTexture = ApplicationManager::application.getWindow()->text->loadText(this->text);
+		this->tTexture = ApplicationManager::application.getWindow()->text->loadText(this->text); //create InputBox
 		SDL_QueryTexture(this->tTexture, NULL, NULL, &this->tRect.w, &this->tRect.h);
 		
 		this->updateTRect();

@@ -4,7 +4,7 @@
 
 class ApplicationManager {
 public:
-	static int applicationW;
-	static int applicationH;
+	static int applicationW; //define application width
+	static int applicationH; //define application height
 	static Application application;
 };

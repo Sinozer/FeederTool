@@ -14,7 +14,7 @@ class MainSDLWindow
 protected:
 	SDL_Window* window;
 
-	Container<View*> viewList;
+	Container<View*> viewList; //create a list of different view in the application
 	View* currentView;
 public:
 	SDL_Renderer* renderer;
@@ -22,18 +22,18 @@ public:
 
 	Mix_Music* EEG;
 
-	MainSDLWindow(const char* title, int width, int height, bool fullScreen);
+	MainSDLWindow(const char* title, int width, int height, bool fullScreen); //create the SDL window
 	~MainSDLWindow(void);
 
-	int init(const char* title, int width, int height, bool fullScreen);
+	int init(const char* title, int width, int height, bool fullScreen); //initialize setting of the window
 	
-	View* getCurrentView();
-	void setCurrentView(View* view);
+	View* getCurrentView(); //return the current view in the window
+	void setCurrentView(View* view); //change view of the window
 
-	void clearRenderer(void);
+	void clearRenderer(void); //clear the window
 
 	/*###### Holder ######*/
-	Container<View*>& getViews();
+	Container<View*>& getViews(); //return list of different view
 	void createView(const char* name, bool isActive);
 	/*###### Holder ######*/
 };

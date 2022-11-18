@@ -31,10 +31,10 @@
           },
           "stock": {
                     "milk": {
-                              "quantity": 3,
+                              "quantity": 3
                     },
                     "petit pois": {
-                              "quantity": 2,
+                              "quantity": 2
                     }
           }
 }

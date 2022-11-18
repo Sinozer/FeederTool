@@ -38,18 +38,18 @@ public:
 
 	bool isRunning();
 
-	void handleEvents();
-	void update();
-	void render();
-	void clean();
+	void handleEvents(); //trigger on SDL event
+	void update(); //updated place Holder
+	void render(); //print SDL window
+	void clean(); //clear the SDL window
 
 
 	/*###### MainSDLWindow ######*/
-	MainSDLWindow* getWindow();
+	MainSDLWindow* getWindow(); //return SDL window
 	/*###### MainSDLWindow ######*/
 
 	/*###### Feeder ######*/
-	Container<Feeder>& getFeeders();
+	Container<Feeder>& getFeeders(); // return the list of Feeders
 	void createFeeder(const char* name,
 		time_t timeToTake, int quantity = 0,
 		bool eated = false, bool vomited = false);
