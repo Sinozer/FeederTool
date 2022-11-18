@@ -92,28 +92,35 @@ int main(int argc, char* args[])
 		mainView->createHolder(
 			"TEMPLATE_FEEDER_HOLDER", true,
 			mainHolder.getX() + 5, mainHolder.getY() + mainHolder.getH() / 6,
-			mainHolder.getW() - 10, mainHolder.getH() / 1.6,
+			mainHolder.getW() - 10, mainHolder.getH() / 10,
 			0, 0, 0, 0
 		);
 		Holder& feederHolder = mainView->getHolders().getElement("TEMPLATE_FEEDER_HOLDER");
+
+		for (auto i = 0; i < ApplicationManager::application.getFeeders().getLen(); i++)
+		{
+			mainView->createHolder(
+				"FEEDER_HOLDER_" + i, true,
+				feederHolder.getX(), feederHolder.getY() * (i + 1),
+				feederHolder.getW(), feederHolder.getH(),
+				0, 0, 0, 127
+			);
+
+			cout << (feederHolder.getY() + feederHolder.getH() + 10) * i << endl;
+		}
 
 		/*for (auto i = 0; i < ApplicationManager::application.getFeeders().getLen(); i++)
 		{
 			bool isActive = false;
 			if (i == 0) isActive = true;
 
-			cout << typeid(to_string(i).c_str()).name() << endl;
-			cout << to_string(i).c_str() << endl;
-
-			const char* name = (to_string(i)).c_str();
-
 			mainView->createHolder(
-				name, isActive,
+				to_string(i).c_str(), isActive,
 				feederHolder.getX(), feederHolder.getY() + (feederHolder.getH() + 10) * i,
 				feederHolder.getW(), feederHolder.getH(),
 				0, 0, 0, 127
 			);
-			Holder& feederHolder_ = mainView->getHolders().getElement(name);
+			Holder& feederHolder_ = mainView->getHolders().getElement(to_string(i).c_str());
 
 			feederHolder_.createTextBox(
 				"TITLE", to_string(i + 1).c_str(),
@@ -137,7 +144,7 @@ int main(int argc, char* args[])
 				[i]() {
 					int i_ = i;
 					if (i_ <= 0) i_ = ApplicationManager::application.getFeeders().getLen() - 1;
-					const char* temp_ = (to_string(i_)).c_str();
+					const char* temp_ = to_string(i).c_str();
 					ApplicationManager::application.getWindow()->getCurrentView()->getHolders().getElement("MAIN_HOLDER").getHolders().getElement(temp_).setActive(true);
 					ApplicationManager::application.getWindow()->getCurrentView()->getHolders().getElement("MAIN_HOLDER").getHolders().getElement(temp_).setActive(false);
 				},
@@ -152,7 +159,7 @@ int main(int argc, char* args[])
 				[i]() {
 					int i_ = i;
 					if (i_ >= ApplicationManager::application.getFeeders().getLen() - 1) i_ = 0;
-					const char* temp_ = (to_string(i_)).c_str();
+					const char* temp_ = to_string(i).c_str();
 					ApplicationManager::application.getWindow()->getCurrentView()->getHolders().getElement("MAIN_HOLDER").getHolders().getElement(temp_).setActive(true);
 					ApplicationManager::application.getWindow()->getCurrentView()->getHolders().getElement("MAIN_HOLDER").getHolders().getElement(temp_).setActive(false);
 				},
@@ -161,8 +168,7 @@ int main(int argc, char* args[])
 					feederContentHolder.getW() / 10, feederContentHolder.getH(),
 					"mid", "mid", 255, 255, 255, 127
 					);
-			ApplicationManager::application.getFeeders().getElement(i)
-		};*/
+		}*/
 
 		mainHolder.createButton(
 			"ADD_BUTTON", "Ajouter un biberon",
